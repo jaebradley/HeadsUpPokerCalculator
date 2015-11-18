@@ -14,7 +14,7 @@ public class CardTest {
                         suit
                 );
                 Assert.assertNotNull(resultCard);
-                Assert.assertEquals(cardCategory, resultCard.getCardCategory());
+                Assert.assertEquals(cardCategory, resultCard.getCategory());
                 Assert.assertEquals(suit, resultCard.getSuit());
             }
         }
