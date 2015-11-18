@@ -1,4 +1,4 @@
-package java.main.common.model;
+package main.java.common.model;
 
 public class EvaluatedHand {
     private final HandCategory category;

@@ -1,4 +1,4 @@
-package java.main.common.model;
+package main.java.common.model;
 
 public enum CardCategory {
     ACE(1),
