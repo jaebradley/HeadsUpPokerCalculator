@@ -1,15 +1,17 @@
 package main.java.common.model;
 
-import java.util.HashSet;
+import java.util.TreeSet;
 
 public class Hand {
-    private final HashSet<Card> cards;
+    private final TreeSet<Card> cards;
 
-    public Hand(final HashSet<Card> cards) {
+    public Hand(final TreeSet<Card> cards) {
+        assert 5 == cards.size();
+
         this.cards = cards;
     }
 
-    public HashSet<Card> getCards() {
+    public TreeSet<Card> getCards() {
         return cards;
     }
 }
