@@ -1,4 +1,4 @@
-package main.common.model;
+package java.main.common.model;
 
 public enum Suit {
     CLUBS, DIAMONDS, HEARTS, SPADES

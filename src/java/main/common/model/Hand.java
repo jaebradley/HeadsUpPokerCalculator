@@ -1,4 +1,4 @@
-package main.common.model;
+package java.main.common.model;
 
 public class Hand {
     private final Card firstCard;
@@ -48,7 +48,7 @@ public class Hand {
         return fifthCard;
     }
 
-    public Card[] returnCards() {
+    public Card[] getCards() {
         return new Card[] {
                 firstCard,
                 secondCard,

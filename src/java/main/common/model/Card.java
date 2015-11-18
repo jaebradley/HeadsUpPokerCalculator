@@ -1,4 +1,4 @@
-package main.common.model;
+package java.main.common.model;
 
 public class Card {
     private final CardCategory category;

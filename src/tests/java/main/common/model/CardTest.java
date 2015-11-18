@@ -1,4 +1,4 @@
-package main.common.model;
+package java.main.common.model;
 
 import org.junit.Assert;
 import org.junit.Test;
