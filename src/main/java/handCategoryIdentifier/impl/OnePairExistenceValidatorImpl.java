@@ -3,11 +3,11 @@ package main.java.handCategoryIdentifier.impl;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
 import main.java.common.utils.impl.CardCategoryCountReturner;
-import main.java.handCategoryIdentifier.interfaces.HandCategoryExistenceValidator;
+import main.java.handCategoryIdentifier.interfaces.OnePairExistenceValidator;
 
 import java.util.HashMap;
 
-public class OnePairExistenceValidatorImpl implements HandCategoryExistenceValidator {
+public class OnePairExistenceValidatorImpl implements OnePairExistenceValidator {
     @Override
     public boolean validateExistence(final Hand hand) {
         final HashMap<CardCategory, Integer> cardCategoryCountMap = CardCategoryCountReturner.returnCardCategoryCount(hand);

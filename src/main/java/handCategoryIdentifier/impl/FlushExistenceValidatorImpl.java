@@ -3,12 +3,12 @@ package main.java.handCategoryIdentifier.impl;
 import main.java.common.model.Card;
 import main.java.common.model.Hand;
 import main.java.common.model.Suit;
-import main.java.handCategoryIdentifier.interfaces.HandCategoryExistenceValidator;
+import main.java.handCategoryIdentifier.interfaces.FlushExistenceValidator;
 
 import java.util.HashSet;
 import java.util.Iterator;
 
-public final class FlushExistenceValidatorImpl implements HandCategoryExistenceValidator {
+public final class FlushExistenceValidatorImpl implements FlushExistenceValidator {
     @Override
     public boolean validateExistence(final Hand hand) {
         final HashSet<Card> cards = hand.getCards();
