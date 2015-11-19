@@ -1,10 +1,10 @@
-package main.java.handCategoryCalculator.impl;
+package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Hand;
 import main.java.common.utils.impl.CardCategoryCountReturner;
-import main.java.handCategoryCalculator.interfaces.HandCategoryExistenceValidator;
+import main.java.handCategoryIdentifier.interfaces.HandCategoryExistenceValidator;
 
-public class FourOfAKindExistenceValidator implements HandCategoryExistenceValidator {
+public class FourOfAKindExistenceValidatorImpl implements HandCategoryExistenceValidator {
 
     @Override
     public boolean validateExistence(final Hand hand) {

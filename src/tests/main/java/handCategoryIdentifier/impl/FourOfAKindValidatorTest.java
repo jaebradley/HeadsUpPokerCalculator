@@ -1,4 +1,4 @@
-package main.java.handCategoryCalculator.impl;
+package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
@@ -10,7 +10,7 @@ import org.junit.Test;
 import java.util.HashSet;
 
 public class FourOfAKindValidatorTest {
-    private final FourOfAKindExistenceValidator fourOfAKindValidator = new FourOfAKindExistenceValidator();
+    private final FourOfAKindExistenceValidatorImpl fourOfAKindValidator = new FourOfAKindExistenceValidatorImpl();
 
     @Test
     public void testFourOfAKinds() {

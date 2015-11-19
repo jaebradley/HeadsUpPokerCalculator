@@ -1,4 +1,4 @@
-package main.java.handCategoryCalculator.interfaces;
+package main.java.handCategoryIdentifier.interfaces;
 
 import main.java.common.model.Hand;
 import main.java.common.model.HandCategory;

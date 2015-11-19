@@ -1,4 +1,4 @@
-package main.java.handCategoryCalculator.impl;
+package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
@@ -10,7 +10,7 @@ import org.junit.Test;
 import java.util.HashSet;
 
 public class ThreeOfAKindExistenceValidatorTest {
-    private final ThreeOfAKindExistenceValidator threeOfAKindExistenceValidator = new ThreeOfAKindExistenceValidator();
+    private final ThreeOfAKindExistenceValidatorImpl threeOfAKindExistenceValidator = new ThreeOfAKindExistenceValidatorImpl();
 
     @Test
     public void testExpected() {
@@ -46,8 +46,8 @@ public class ThreeOfAKindExistenceValidatorTest {
                         Suit.HEARTS
                 )
         );
-        final Hand highCardhand = new Hand(highCardHashSet);
-        Assert.assertFalse(threeOfAKindExistenceValidator.validateExistence(highCardhand));
+        final Hand highCardHand = new Hand(highCardHashSet);
+        Assert.assertFalse(threeOfAKindExistenceValidator.validateExistence(highCardHand));
     }
 
 }

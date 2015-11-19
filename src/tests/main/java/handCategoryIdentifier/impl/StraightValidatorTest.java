@@ -1,4 +1,4 @@
-package main.java.handCategoryCalculator.impl;
+package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class StraightValidatorTest {
-    private final StraightExistenceValidator straightValidator = new StraightExistenceValidator();
+    private final StraightExistenceValidatorImpl straightValidator = new StraightExistenceValidatorImpl();
 
     @Test
     public void testStraights() {

@@ -1,4 +1,4 @@
-package main.java.handCategoryCalculator.impl;
+package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
@@ -11,7 +11,7 @@ import java.util.HashSet;
 
 public class FlushValidatorTest {
 
-    private final FlushExistenceValidator flushValidator = new FlushExistenceValidator();
+    private final FlushExistenceValidatorImpl flushValidator = new FlushExistenceValidatorImpl();
 
     @Test
     public void expectedCase() {

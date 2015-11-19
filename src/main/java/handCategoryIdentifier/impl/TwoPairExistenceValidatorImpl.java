@@ -1,13 +1,13 @@
-package main.java.handCategoryCalculator.impl;
+package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
 import main.java.common.utils.impl.CardCategoryCountReturner;
-import main.java.handCategoryCalculator.interfaces.HandCategoryExistenceValidator;
+import main.java.handCategoryIdentifier.interfaces.HandCategoryExistenceValidator;
 
 import java.util.HashMap;
 
-public class OnePairExistenceValidator implements HandCategoryExistenceValidator {
+public class TwoPairExistenceValidatorImpl implements HandCategoryExistenceValidator {
     @Override
     public boolean validateExistence(final Hand hand) {
         final HashMap<CardCategory, Integer> cardCategoryCountMap = CardCategoryCountReturner.returnCardCategoryCount(hand);
@@ -18,6 +18,6 @@ public class OnePairExistenceValidator implements HandCategoryExistenceValidator
             }
         }
 
-        return 1 == pairCount;
+        return 2 == pairCount;
     }
 }
