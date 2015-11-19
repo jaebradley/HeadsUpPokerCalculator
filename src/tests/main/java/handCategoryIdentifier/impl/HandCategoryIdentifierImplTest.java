@@ -93,6 +93,8 @@ public class HandCategoryIdentifierImplTest {
         }
     };
 
+    //TODO: add more test cases
+
     @Test
     public void testStraightFlush() {
         final HashSet<Card> cards = new HashSet<>();
