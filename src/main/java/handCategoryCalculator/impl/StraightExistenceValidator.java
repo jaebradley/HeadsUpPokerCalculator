@@ -3,15 +3,15 @@ package main.java.handCategoryCalculator.impl;
 import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
-import main.java.handCategoryCalculator.interfaces.HandCategoryValidator;
+import main.java.handCategoryCalculator.interfaces.HandCategoryExistenceValidator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeSet;
 
-public class StraightValidator implements HandCategoryValidator {
+public class StraightExistenceValidator implements HandCategoryExistenceValidator {
     @Override
-    public boolean validateHand(final Hand hand) {
+    public boolean validateExistence(final Hand hand) {
         final TreeSet<Card> cards = hand.getSortedCardsInAscendingCategoryOrder();
         final Iterator<Card> cardIterator = cards.iterator();
         final ArrayList<CardCategory> cardCategories = new ArrayList<>();

@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class StraightValidatorTest {
-    private final StraightValidator straightValidator = new StraightValidator();
+    private final StraightExistenceValidator straightValidator = new StraightExistenceValidator();
 
     @Test
     public void testStraights() {
@@ -53,7 +53,7 @@ public class StraightValidatorTest {
                 final Hand straightHand = new Hand(
                         cards
                 );
-                Assert.assertTrue(straightValidator.validateHand(straightHand));
+                Assert.assertTrue(straightValidator.validateExistence(straightHand));
             }
         }
 

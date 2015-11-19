@@ -11,7 +11,7 @@ import java.util.HashSet;
 
 public class FlushValidatorTest {
 
-    private final FlushValidator flushValidator = new FlushValidator();
+    private final FlushExistenceValidator flushValidator = new FlushExistenceValidator();
 
     @Test
     public void expectedCase() {
@@ -53,7 +53,7 @@ public class FlushValidatorTest {
                                         )
                                 );
                                 final Hand hand = new Hand(cards);
-                                Assert.assertTrue(flushValidator.validateHand(hand));
+                                Assert.assertTrue(flushValidator.validateExistence(hand));
                             }
                         }
                     }

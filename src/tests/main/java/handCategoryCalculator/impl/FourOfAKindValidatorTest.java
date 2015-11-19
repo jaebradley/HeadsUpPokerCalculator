@@ -10,7 +10,7 @@ import org.junit.Test;
 import java.util.HashSet;
 
 public class FourOfAKindValidatorTest {
-    private final FourOfAKindValidator fourOfAKindValidator = new FourOfAKindValidator();
+    private final FourOfAKindExistenceValidator fourOfAKindValidator = new FourOfAKindExistenceValidator();
 
     @Test
     public void testFourOfAKinds() {
@@ -53,7 +53,7 @@ public class FourOfAKindValidatorTest {
                                 )
                         );
                         final Hand fourOfAKind = new Hand(cards);
-                        Assert.assertTrue(fourOfAKindValidator.validateHand(fourOfAKind));
+                        Assert.assertTrue(fourOfAKindValidator.validateExistence(fourOfAKind));
                     }
                 }
             }
