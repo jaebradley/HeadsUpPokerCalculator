@@ -6,7 +6,6 @@ import main.java.common.model.Hand;
 import main.java.handCategoryCalculator.interfaces.HandCategoryValidator;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.TreeSet;
 
