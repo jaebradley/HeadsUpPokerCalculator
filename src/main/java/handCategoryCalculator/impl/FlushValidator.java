@@ -11,7 +11,7 @@ import java.util.TreeSet;
 public final class FlushValidator implements HandCategoryValidator {
     @Override
     public boolean validateHand(final Hand hand) {
-        final TreeSet<Card> cards = hand.getCards();
+        final TreeSet<Card> cards = hand.getCardsOrderedByCategory();
         final Iterator<Card> cardIterator = cards.iterator();
         final Suit firstCardSuit = cardIterator.next().getSuit();
         cardIterator.remove();

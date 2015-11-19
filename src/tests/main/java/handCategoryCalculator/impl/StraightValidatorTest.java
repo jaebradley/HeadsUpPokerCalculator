@@ -60,5 +60,7 @@ public class StraightValidatorTest {
                 Assert.assertTrue(straightValidator.validateHand(straightHand));
             }
         }
+
+        //TODO: add ace low straights
     }
 }

@@ -15,7 +15,7 @@ public class Hand {
         }
     }
 
-    public TreeSet<Card> getCards() {
+    public TreeSet<Card> getCardsOrderedByCategory() {
         return cards;
     }
 }

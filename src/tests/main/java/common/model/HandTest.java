@@ -3,7 +3,6 @@ package main.java.common.model;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.HashSet;
 import java.util.TreeSet;
 
 public class HandTest {
@@ -50,7 +49,7 @@ public class HandTest {
                                 );
                                 final Hand hand = new Hand(cards);
                                 Assert.assertNotNull(hand);
-                                Assert.assertEquals(cards, hand.getCards());
+                                Assert.assertEquals(cards, hand.getCardsOrderedByCategory());
                             }
                         }
                     }
