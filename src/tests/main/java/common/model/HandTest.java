@@ -3,7 +3,7 @@ package main.java.common.model;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.TreeSet;
+import java.util.HashSet;
 
 public class HandTest {
 
@@ -16,7 +16,7 @@ public class HandTest {
                     for (int cardCategory3Index = cardCategory2Index + 1; cardCategory3Index < CardCategory.values().length - 2; cardCategory3Index++) {
                         for (int cardCategory4Index = cardCategory3Index + 1; cardCategory4Index < CardCategory.values().length - 1; cardCategory4Index++) {
                             for (int cardCategory5Index = cardCategory4Index + 1; cardCategory5Index < CardCategory.values().length - 1; cardCategory5Index++) {
-                                final TreeSet<Card> cards = new TreeSet<>();
+                                final HashSet<Card> cards = new HashSet<>();
                                 cards.add(
                                         new Card(
                                                 CardCategory.values()[cardCategory1Index],
@@ -49,7 +49,7 @@ public class HandTest {
                                 );
                                 final Hand hand = new Hand(cards);
                                 Assert.assertNotNull(hand);
-                                Assert.assertEquals(cards, hand.getCardsOrderedByCategory());
+                                Assert.assertEquals(cards, hand.getCards());
                             }
                         }
                     }

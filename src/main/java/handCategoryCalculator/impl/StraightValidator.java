@@ -12,7 +12,7 @@ import java.util.TreeSet;
 public class StraightValidator implements HandCategoryValidator {
     @Override
     public boolean validateHand(final Hand hand) {
-        final TreeSet<Card> cards = hand.getCardsOrderedByCategory();
+        final TreeSet<Card> cards = hand.getSortedCardsInAscendingCategoryOrder();
         final Iterator<Card> cardIterator = cards.iterator();
         final ArrayList<CardCategory> cardCategories = new ArrayList<>();
         while (cardIterator.hasNext()) {

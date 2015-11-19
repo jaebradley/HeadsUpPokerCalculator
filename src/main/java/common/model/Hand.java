@@ -1,21 +1,24 @@
 package main.java.common.model;
 
-import java.util.Set;
+import java.util.HashSet;
 import java.util.TreeSet;
 
 public class Hand {
-    private final TreeSet<Card> cards;
+    private final HashSet<Card> cards;
 
-    public Hand(final Set<Card> inputCards) {
+    public Hand(final HashSet<Card> inputCards) {
         assert 5 == inputCards.size();
 
-        this.cards = new TreeSet<>(new CardComparator());
-        for (final Card card : inputCards) {
-            this.cards.add(card);
-        }
+        this.cards = inputCards;
     }
 
-    public TreeSet<Card> getCardsOrderedByCategory() {
+    public HashSet<Card> getCards() {
         return cards;
+    }
+
+    public TreeSet<Card> getSortedCardsInAscendingCategoryOrder() {
+        final TreeSet<Card> sortedCards = new TreeSet<>(new CardComparator());
+        sortedCards.addAll(this.cards);
+        return sortedCards;
     }
 }

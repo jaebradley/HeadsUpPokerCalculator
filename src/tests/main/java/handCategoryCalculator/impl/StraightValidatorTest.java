@@ -9,10 +9,6 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
-
-import static org.junit.Assert.*;
 
 public class StraightValidatorTest {
     private final StraightValidator straightValidator = new StraightValidator();
@@ -23,7 +19,7 @@ public class StraightValidatorTest {
         Arrays.sort(cardCategories);
         for (final Suit suit : Suit.values()) {
             for (int cardCategoryIndex = 0; cardCategoryIndex <= cardCategories.length - 5; cardCategoryIndex++) {
-                final Set<Card> cards = new HashSet<>();
+                final HashSet<Card> cards = new HashSet<>();
                 cards.add(
                         new Card(
                                 cardCategories[cardCategoryIndex],
