@@ -24,6 +24,6 @@ public class StraightValidator implements HandCategoryValidator {
                 cardCategories.contains(CardCategory.THREE) &&
                 cardCategories.contains(CardCategory.FOUR) &&
                 cardCategories.contains(CardCategory.FIVE)
-            ) || (4 != cards.last().getCategory().getValue() - cards.first().getCategory().getValue());
+            ) || (4 == cards.last().getCategory().getValue() - cards.first().getCategory().getValue());
     }
 }
