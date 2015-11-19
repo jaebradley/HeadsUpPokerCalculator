@@ -2,24 +2,23 @@ package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Hand;
 import main.java.common.model.HandCategory;
-import main.java.handCategoryIdentifier.interfaces.FlushExistenceValidator;
-import main.java.handCategoryIdentifier.interfaces.HandCategoryIdentifier;
+import main.java.handCategoryIdentifier.interfaces.*;
 
 public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
     private final FlushExistenceValidator flushExistenceValidator;
-    private final StraightExistenceValidatorImpl straightExistenceValidator;
-    private final FourOfAKindExistenceValidatorImpl fourOfAKindExistenceValidator;
-    private final ThreeOfAKindExistenceValidatorImpl threeOfAKindExistenceValidator;
-    private final TwoPairExistenceValidatorImpl twoPairExistenceValidator;
-    private final OnePairExistenceValidatorImpl onePairExistenceValidator;
+    private final StraightExistenceValidator straightExistenceValidator;
+    private final FourOfAKindExistenceValidator fourOfAKindExistenceValidator;
+    private final ThreeOfAKindExistenceValidator threeOfAKindExistenceValidator;
+    private final TwoPairExistenceValidator twoPairExistenceValidator;
+    private final OnePairExistenceValidator onePairExistenceValidator;
 
     public HandCategoryIdentifierImpl(
             final FlushExistenceValidator flushExistenceValidator,
-            final StraightExistenceValidatorImpl straightExistenceValidator,
-            final FourOfAKindExistenceValidatorImpl fourOfAKindExistenceValidator,
-            final ThreeOfAKindExistenceValidatorImpl threeOfAKindExistenceValidator,
-            final TwoPairExistenceValidatorImpl twoPairExistenceValidator,
-            final OnePairExistenceValidatorImpl onePairExistenceValidator
+            final StraightExistenceValidator straightExistenceValidator,
+            final FourOfAKindExistenceValidator fourOfAKindExistenceValidator,
+            final ThreeOfAKindExistenceValidator threeOfAKindExistenceValidator,
+            final TwoPairExistenceValidator twoPairExistenceValidator,
+            final OnePairExistenceValidator onePairExistenceValidator
     ) {
         this.flushExistenceValidator = flushExistenceValidator;
         this.straightExistenceValidator = straightExistenceValidator;
