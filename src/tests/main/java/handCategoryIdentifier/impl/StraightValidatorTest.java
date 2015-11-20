@@ -4,14 +4,96 @@ import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
 import main.java.common.model.Suit;
+import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.TreeSet;
 
 public class StraightValidatorTest {
     private final StraightExistenceValidatorImpl straightValidator = new StraightExistenceValidatorImpl();
+    private final SortedCardCategoryReturner twoDistinctSortedCardCategoryReturner = new SortedCardCategoryReturner() {
+        @Override
+        public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
+            final TreeSet<CardCategory> cardCategories = new TreeSet<>();
+            cardCategories.add(CardCategory.EIGHT);
+            cardCategories.add(CardCategory.FIVE);
+            return cardCategories;
+        }
+    };
+    private final SortedCardCategoryReturner threeDistinctSortedCardCategoryReturner = new SortedCardCategoryReturner() {
+        @Override
+        public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
+            final TreeSet<CardCategory> cardCategories = new TreeSet<>();
+            cardCategories.add(CardCategory.EIGHT);
+            cardCategories.add(CardCategory.FIVE);
+            cardCategories.add(CardCategory.SIX);
+            return cardCategories;
+        }
+    };
+    private final SortedCardCategoryReturner fourDistinctSortedCardCategoryReturner = new SortedCardCategoryReturner() {
+        @Override
+        public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
+            final TreeSet<CardCategory> cardCategories = new TreeSet<>();
+            cardCategories.add(CardCategory.EIGHT);
+            cardCategories.add(CardCategory.FIVE);
+            cardCategories.add(CardCategory.SIX);
+            cardCategories.add(CardCategory.NINE);
+            return cardCategories;
+        }
+    };
+    private final SortedCardCategoryReturner fiveDistinctSortedCardCategoryReturner = new SortedCardCategoryReturner() {
+        @Override
+        public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
+            final TreeSet<CardCategory> cardCategories = new TreeSet<>();
+            cardCategories.add(CardCategory.EIGHT);
+            cardCategories.add(CardCategory.FIVE);
+            cardCategories.add(CardCategory.SIX);
+            cardCategories.add(CardCategory.NINE);
+            cardCategories.add(CardCategory.KING);
+            return cardCategories;
+        }
+    };
+    private final SortedCardCategoryReturner lowStraightSortedCardCategoryReturner = new SortedCardCategoryReturner() {
+        @Override
+        public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
+            final TreeSet<CardCategory> cardCategories = new TreeSet<>();
+            cardCategories.add(CardCategory.TWO);
+            cardCategories.add(CardCategory.FIVE);
+            cardCategories.add(CardCategory.FOUR);
+            cardCategories.add(CardCategory.ACE);
+            cardCategories.add(CardCategory.THREE);
+            return cardCategories;
+        }
+    };
+    private final SortedCardCategoryReturner highStraightSortedCardCategoryReturner = new SortedCardCategoryReturner() {
+        @Override
+        public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
+            final TreeSet<CardCategory> cardCategories = new TreeSet<>();
+            cardCategories.add(CardCategory.KING);
+            cardCategories.add(CardCategory.QUEEN);
+            cardCategories.add(CardCategory.TEN);
+            cardCategories.add(CardCategory.ACE);
+            cardCategories.add(CardCategory.JACK);
+            return cardCategories;
+        }
+    };
+    private final SortedCardCategoryReturner middleStraightSortedCardCategoryReturner = new SortedCardCategoryReturner() {
+        @Override
+        public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
+            final TreeSet<CardCategory> cardCategories = new TreeSet<>();
+            cardCategories.add(CardCategory.NINE);
+            cardCategories.add(CardCategory.EIGHT);
+            cardCategories.add(CardCategory.SIX);
+            cardCategories.add(CardCategory.SEVEN);
+            cardCategories.add(CardCategory.TEN);
+            return cardCategories;
+        }
+    };
+
+
 
     // tests
     // test 2, 3, 4 distinct values where difference between largest and smallest is 4
@@ -19,49 +101,17 @@ public class StraightValidatorTest {
     // test regular straight
 
     @Test
-    public void testStraights() {
-        final CardCategory[] cardCategories = CardCategory.values();
-        Arrays.sort(cardCategories);
-        for (final Suit suit : Suit.values()) {
-            for (int cardCategoryIndex = 0; cardCategoryIndex <= cardCategories.length - 5; cardCategoryIndex++) {
-                final HashSet<Card> cards = new HashSet<>();
-                cards.add(
-                        new Card(
-                                cardCategories[cardCategoryIndex],
-                                suit
-                        )
-                );
-                cards.add(
-                        new Card(
-                                cardCategories[cardCategoryIndex + 1],
-                                suit
-                        )
-                );
-                cards.add(
-                        new Card(
-                                cardCategories[cardCategoryIndex + 2],
-                                suit
-                        )
-                );
-                cards.add(
-                        new Card(
-                                cardCategories[cardCategoryIndex + 3],
-                                suit
-                        )
-                );
-                cards.add(
-                        new Card(
-                                cardCategories[cardCategoryIndex + 4],
-                                suit
-                        )
-                );
-                final Hand straightHand = new Hand(
-                        cards
-                );
-                Assert.assertTrue(straightValidator.validateExistence(straightHand));
-            }
-        }
+    public void testDifferentDistinctValues() {
+        Assert.assertFalse(straightValidator.validateExistence(null, twoDistinctSortedCardCategoryReturner));
+        Assert.assertFalse(straightValidator.validateExistence(null, threeDistinctSortedCardCategoryReturner));
+        Assert.assertFalse(straightValidator.validateExistence(null, fourDistinctSortedCardCategoryReturner));
+        Assert.assertFalse(straightValidator.validateExistence(null, fiveDistinctSortedCardCategoryReturner));
+    }
 
-        //TODO: add ace low straights
+    @Test
+    public void testStraights() {
+        Assert.assertTrue(straightValidator.validateExistence(null, lowStraightSortedCardCategoryReturner));
+        Assert.assertTrue(straightValidator.validateExistence(null, highStraightSortedCardCategoryReturner));
+        Assert.assertTrue(straightValidator.validateExistence(null, middleStraightSortedCardCategoryReturner));
     }
 }

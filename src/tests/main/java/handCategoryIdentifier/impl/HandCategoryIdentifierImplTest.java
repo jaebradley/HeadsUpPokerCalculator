@@ -1,13 +1,28 @@
 package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.*;
+import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.handCategoryIdentifier.interfaces.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashSet;
+import java.util.TreeSet;
 
 public class HandCategoryIdentifierImplTest {
+
+    private final SortedCardCategoryReturner sortedCardCategoryReturner = new SortedCardCategoryReturner() {
+        @Override
+        public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
+            final TreeSet<CardCategory> cardCategories = new TreeSet<>();
+            cardCategories.add(CardCategory.JACK);
+            cardCategories.add(CardCategory.TEN);
+            cardCategories.add(CardCategory.QUEEN);
+            cardCategories.add(CardCategory.ACE);
+            cardCategories.add(CardCategory.KING);
+            return cardCategories;
+        }
+    };
 
     private final FlushExistenceValidator flushNonExistenceValidator = new FlushExistenceValidator() {
         @Override
@@ -25,14 +40,14 @@ public class HandCategoryIdentifierImplTest {
 
     private final StraightExistenceValidator straightNonExistenceValidator = new StraightExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand) {
+        public boolean validateExistence(final Hand hand, final SortedCardCategoryReturner sortedCardCategoryReturner) {
             return false;
         }
     };
 
     private final StraightExistenceValidator straightExistenceValidator = new StraightExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand) {
+        public boolean validateExistence(final Hand hand, final SortedCardCategoryReturner sortedCardCategoryReturner) {
             return true;
         }
     };
@@ -110,8 +125,8 @@ public class HandCategoryIdentifierImplTest {
                 fourOfAKindExistenceValidator,
                 threeOfAKindExistenceValidator,
                 twoPairExistenceValidator,
-                onePairExistenceValidator
-        );
+                onePairExistenceValidator,
+                sortedCardCategoryReturner);
 
         Assert.assertEquals(HandCategory.StraightFlush, handCategoryIdentifier1.identifyHandCategory(hand));
     }

@@ -2,6 +2,7 @@ package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Hand;
 import main.java.common.model.HandCategory;
+import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.handCategoryIdentifier.interfaces.*;
 
 public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
@@ -11,6 +12,7 @@ public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
     private final ThreeOfAKindExistenceValidator threeOfAKindExistenceValidator;
     private final TwoPairExistenceValidator twoPairExistenceValidator;
     private final OnePairExistenceValidator onePairExistenceValidator;
+    private final SortedCardCategoryReturner sortedCardCategoryReturner;
 
     public HandCategoryIdentifierImpl(
             final FlushExistenceValidator flushExistenceValidator,
@@ -18,19 +20,20 @@ public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
             final FourOfAKindExistenceValidator fourOfAKindExistenceValidator,
             final ThreeOfAKindExistenceValidator threeOfAKindExistenceValidator,
             final TwoPairExistenceValidator twoPairExistenceValidator,
-            final OnePairExistenceValidator onePairExistenceValidator
-    ) {
+            final OnePairExistenceValidator onePairExistenceValidator,
+            final SortedCardCategoryReturner sortedCardCategoryReturner) {
         this.flushExistenceValidator = flushExistenceValidator;
         this.straightExistenceValidator = straightExistenceValidator;
         this.fourOfAKindExistenceValidator = fourOfAKindExistenceValidator;
         this.threeOfAKindExistenceValidator = threeOfAKindExistenceValidator;
         this.twoPairExistenceValidator = twoPairExistenceValidator;
         this.onePairExistenceValidator = onePairExistenceValidator;
+        this.sortedCardCategoryReturner = sortedCardCategoryReturner;
     }
 
     @Override
     public HandCategory identifyHandCategory(final Hand hand) {
-        if (flushExistenceValidator.validateExistence(hand) && straightExistenceValidator.validateExistence(hand)) {
+        if (flushExistenceValidator.validateExistence(hand) && straightExistenceValidator.validateExistence(hand, sortedCardCategoryReturner)) {
             return HandCategory.StraightFlush;
         }
 
@@ -46,7 +49,7 @@ public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
             return HandCategory.Flush;
         }
 
-        if (straightExistenceValidator.validateExistence(hand)) {
+        if (straightExistenceValidator.validateExistence(hand, sortedCardCategoryReturner)) {
             return HandCategory.Straight;
         }
 
