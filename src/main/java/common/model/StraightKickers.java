@@ -1,6 +1,6 @@
 package main.java.common.model;
 
-public class StraightKickers extends Kickers {
+public class StraightKickers {
     private final CardCategory highestCardCategory;
 
     public StraightKickers(final CardCategory highestCardCategory) {
