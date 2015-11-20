@@ -147,7 +147,7 @@ public class HandCategoryIdentifierImplTest {
                 twoPairExistenceValidator,
                 onePairExistenceValidator,
                 sortedCardCategoryReturner,
-                distinctSuitsReturner, cardCategoryCountMapper);
+                distinctSuitsReturner, cardCategoryCountMapper, cardCategoryPairCounter);
 
         Assert.assertEquals(HandCategory.StraightFlush, handCategoryIdentifier1.identifyHandCategory(hand));
     }
