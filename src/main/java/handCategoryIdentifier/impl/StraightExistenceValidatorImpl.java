@@ -1,15 +1,10 @@
 package main.java.handCategoryIdentifier.impl;
 
-import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
-import main.java.common.utils.impl.SortedCardsReturnerImpl;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
-import main.java.common.utils.interfaces.SortedCardsReturner;
 import main.java.handCategoryIdentifier.interfaces.StraightExistenceValidator;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.TreeSet;
 
 public class StraightExistenceValidatorImpl implements StraightExistenceValidator {

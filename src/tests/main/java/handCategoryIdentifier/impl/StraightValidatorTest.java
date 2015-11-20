@@ -1,15 +1,11 @@
 package main.java.handCategoryIdentifier.impl;
 
-import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
-import main.java.common.model.Suit;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.TreeSet;
 
 public class StraightValidatorTest {
