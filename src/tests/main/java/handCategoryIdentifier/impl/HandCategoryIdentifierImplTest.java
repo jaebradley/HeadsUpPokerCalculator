@@ -2,6 +2,7 @@ package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.*;
 import main.java.common.utils.interfaces.CardCategoryCountMapper;
+import main.java.common.utils.interfaces.CardCategoryPairCounter;
 import main.java.common.utils.interfaces.DistinctSuitsReturner;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.handCategoryIdentifier.interfaces.*;
@@ -101,28 +102,28 @@ public class HandCategoryIdentifierImplTest {
 
     private final TwoPairExistenceValidator twoPairNonExistenceValidator = new TwoPairExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean validateExistence(final Hand hand, final CardCategoryPairCounter cardCategoryPairCounter, final CardCategoryCountMapper cardCategoryCountMapper) {
             return false;
         }
     };
 
     private final TwoPairExistenceValidator twoPairExistenceValidator = new TwoPairExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean validateExistence(final Hand hand, final CardCategoryPairCounter cardCategoryPairCounter, final CardCategoryCountMapper cardCategoryCountMapper) {
             return true;
         }
     };
 
     private final OnePairExistenceValidator onePairNonExistenceValidator = new OnePairExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean validateExistence(final Hand hand, final CardCategoryPairCounter cardCategoryPairCounter, final CardCategoryCountMapper cardCategoryCountMapper) {
             return false;
         }
     };
 
     private final OnePairExistenceValidator onePairExistenceValidator = new OnePairExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean validateExistence(final Hand hand, final CardCategoryPairCounter cardCategoryPairCounter, final CardCategoryCountMapper cardCategoryCountMapper) {
             return true;
         }
     };
