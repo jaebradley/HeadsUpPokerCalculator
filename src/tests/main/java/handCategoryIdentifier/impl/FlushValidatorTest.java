@@ -4,6 +4,7 @@ import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
 import main.java.common.model.Suit;
+import main.java.common.utils.interfaces.DistinctSuitsReturner;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,6 +13,14 @@ import java.util.HashSet;
 public class FlushValidatorTest {
 
     private final FlushExistenceValidatorImpl flushValidator = new FlushExistenceValidatorImpl();
+    private final DistinctSuitsReturner distinctSuitsReturner = new DistinctSuitsReturner() {
+        @Override
+        public HashSet<Suit> returnDistinctSuits(final Hand hand) {
+            final HashSet<Suit> suits = new HashSet<>();
+            suits.add(Suit.CLUBS);
+            return suits;
+        }
+    };
 
     @Test
     public void expectedCase() {
@@ -53,7 +62,7 @@ public class FlushValidatorTest {
                                         )
                                 );
                                 final Hand hand = new Hand(cards);
-                                Assert.assertTrue(flushValidator.validateExistence(hand));
+                                Assert.assertTrue(flushValidator.validateExistence(hand, distinctSuitsReturner));
                             }
                         }
                     }

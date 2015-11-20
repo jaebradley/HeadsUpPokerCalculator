@@ -19,4 +19,21 @@ public class CardTest {
             }
         }
     }
+
+    @Test
+    public void testNull() {
+        try {
+            new Card(null, Suit.CLUBS);
+            Assert.fail();
+        } catch (AssertionError e) {
+            // expected
+        }
+
+        try {
+            new Card(CardCategory.ACE, null);
+            Assert.fail();
+        } catch (AssertionError e) {
+            // expected
+        }
+    }
 }

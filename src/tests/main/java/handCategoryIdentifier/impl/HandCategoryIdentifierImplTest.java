@@ -1,6 +1,7 @@
 package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.*;
+import main.java.common.utils.interfaces.DistinctSuitsReturner;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.handCategoryIdentifier.interfaces.*;
 import org.junit.Assert;
@@ -24,16 +25,25 @@ public class HandCategoryIdentifierImplTest {
         }
     };
 
+    private final DistinctSuitsReturner distinctSuitsReturner = new DistinctSuitsReturner() {
+        @Override
+        public HashSet<Suit> returnDistinctSuits(final Hand hand) {
+            final HashSet<Suit> suits = new HashSet<>();
+            suits.add(Suit.CLUBS);
+            return suits;
+        }
+    };
+
     private final FlushExistenceValidator flushNonExistenceValidator = new FlushExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand) {
+        public boolean validateExistence(final Hand hand, final DistinctSuitsReturner distinctSuitsReturner) {
             return false;
         }
     };
 
     private final FlushExistenceValidator flushExistenceValidator = new FlushExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand) {
+        public boolean validateExistence(final Hand hand, final DistinctSuitsReturner distinctSuitsReturner) {
             return true;
         }
     };
@@ -126,7 +136,8 @@ public class HandCategoryIdentifierImplTest {
                 threeOfAKindExistenceValidator,
                 twoPairExistenceValidator,
                 onePairExistenceValidator,
-                sortedCardCategoryReturner);
+                sortedCardCategoryReturner,
+                distinctSuitsReturner);
 
         Assert.assertEquals(HandCategory.StraightFlush, handCategoryIdentifier1.identifyHandCategory(hand));
     }

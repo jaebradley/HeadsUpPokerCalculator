@@ -5,6 +5,8 @@ public class Card {
     private final Suit suit;
 
     public Card(final CardCategory category, final Suit suit) {
+        assert category != null;
+        assert suit != null;
 
         this.category = category;
         this.suit = suit;

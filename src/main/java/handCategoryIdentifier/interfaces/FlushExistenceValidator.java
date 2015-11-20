@@ -1,4 +1,8 @@
 package main.java.handCategoryIdentifier.interfaces;
 
-public interface FlushExistenceValidator extends HandCategoryExistenceValidator{
+import main.java.common.model.Hand;
+import main.java.common.utils.interfaces.DistinctSuitsReturner;
+
+public interface FlushExistenceValidator {
+    boolean validateExistence(final Hand hand, final DistinctSuitsReturner distinctSuitsReturner);
 }
