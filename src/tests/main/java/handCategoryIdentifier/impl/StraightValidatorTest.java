@@ -13,6 +13,11 @@ import java.util.HashSet;
 public class StraightValidatorTest {
     private final StraightExistenceValidatorImpl straightValidator = new StraightExistenceValidatorImpl();
 
+    // tests
+    // test 2, 3, 4 distinct values where difference between largest and smallest is 4
+    // test low straight
+    // test regular straight
+
     @Test
     public void testStraights() {
         final CardCategory[] cardCategories = CardCategory.values();
