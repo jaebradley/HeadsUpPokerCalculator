@@ -1,4 +1,8 @@
 package main.java.handCategoryIdentifier.interfaces;
 
-public interface ThreeOfAKindExistenceValidator extends HandCategoryExistenceValidator {
+import main.java.common.model.Hand;
+import main.java.common.utils.interfaces.CardCategoryCountMapper;
+
+public interface ThreeOfAKindExistenceValidator {
+    boolean validateExistence(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper);
 }

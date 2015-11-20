@@ -4,59 +4,37 @@ import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
 import main.java.common.model.Suit;
+import main.java.common.utils.interfaces.CardCategoryCountMapper;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class FourOfAKindValidatorTest {
     private final FourOfAKindExistenceValidatorImpl fourOfAKindValidator = new FourOfAKindExistenceValidatorImpl();
+    private final CardCategoryCountMapper containsFourCardsCategoryCountMapper = new CardCategoryCountMapper() {
+        @Override
+        public HashMap<CardCategory, Integer> returnCardCategoryCountMap(final Hand hand) {
+            final HashMap<CardCategory, Integer> results = new HashMap<>();
+            results.put(CardCategory.FOUR, 4);
+            return results;
+        }
+    };
+    private final CardCategoryCountMapper doesNotContainFourCardsCategoryCountMapper = new CardCategoryCountMapper() {
+        @Override
+        public HashMap<CardCategory, Integer> returnCardCategoryCountMap(final Hand hand) {
+            final HashMap<CardCategory, Integer> results = new HashMap<>();
+            results.put(CardCategory.FOUR, 2);
+            return results;
+        }
+    };
 
     @Test
-    public void testFourOfAKinds() {
-        // generate all possible four of a kinds
-        // for loop through all possible four of a kind values
-        // for loop through all possible suit values
-        for (final CardCategory fourOfAKindCardCategory : CardCategory.values()) {
-            for (final CardCategory fifthCardCategory : CardCategory.values()) {
-                if (fifthCardCategory.getValue() != fourOfAKindCardCategory.getValue()) {
-                    for (final Suit fifthCardSuit : Suit.values()) {
-                        final HashSet<Card> cards = new HashSet<>();
-                        cards.add(
-                                new Card(
-                                        fourOfAKindCardCategory,
-                                        Suit.CLUBS
-                                )
-                        );
-                        cards.add(
-                                new Card(
-                                        fourOfAKindCardCategory,
-                                        Suit.DIAMONDS
-                                )
-                        );
-                        cards.add(
-                                new Card(
-                                        fourOfAKindCardCategory,
-                                        Suit.SPADES
-                                )
-                        );
-                        cards.add(
-                                new Card(
-                                        fourOfAKindCardCategory,
-                                        Suit.HEARTS
-                                )
-                        );
-                        cards.add(
-                                new Card(
-                                        fifthCardCategory,
-                                        fifthCardSuit
-                                )
-                        );
-                        final Hand fourOfAKind = new Hand(cards);
-                        Assert.assertTrue(fourOfAKindValidator.validateExistence(fourOfAKind));
-                    }
-                }
-            }
-        }
+    public void testExpected() {
+        Assert.assertTrue(fourOfAKindValidator.validateExistence(null, containsFourCardsCategoryCountMapper));
+        Assert.assertFalse(fourOfAKindValidator.validateExistence(null, doesNotContainFourCardsCategoryCountMapper));
     }
+
+
 }
