@@ -2,6 +2,7 @@ package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Hand;
 import main.java.common.model.HandCategory;
+import main.java.common.utils.interfaces.CardCategoryCountMapper;
 import main.java.common.utils.interfaces.DistinctSuitsReturner;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.handCategoryIdentifier.interfaces.*;
@@ -15,6 +16,7 @@ public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
     private final OnePairExistenceValidator onePairExistenceValidator;
     private final SortedCardCategoryReturner sortedCardCategoryReturner;
     private final DistinctSuitsReturner distinctSuitsReturner;
+    private final CardCategoryCountMapper cardCategoryCountMapper;
 
     public HandCategoryIdentifierImpl(
             final FlushExistenceValidator flushExistenceValidator,
@@ -23,7 +25,10 @@ public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
             final ThreeOfAKindExistenceValidator threeOfAKindExistenceValidator,
             final TwoPairExistenceValidator twoPairExistenceValidator,
             final OnePairExistenceValidator onePairExistenceValidator,
-            final SortedCardCategoryReturner sortedCardCategoryReturner, final DistinctSuitsReturner distinctSuitsReturner) {
+            final SortedCardCategoryReturner sortedCardCategoryReturner,
+            final DistinctSuitsReturner distinctSuitsReturner,
+            final CardCategoryCountMapper cardCategoryCountMapper
+    ) {
         this.flushExistenceValidator = flushExistenceValidator;
         this.straightExistenceValidator = straightExistenceValidator;
         this.fourOfAKindExistenceValidator = fourOfAKindExistenceValidator;
@@ -32,6 +37,7 @@ public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
         this.onePairExistenceValidator = onePairExistenceValidator;
         this.sortedCardCategoryReturner = sortedCardCategoryReturner;
         this.distinctSuitsReturner = distinctSuitsReturner;
+        this.cardCategoryCountMapper = cardCategoryCountMapper;
     }
 
     @Override
@@ -40,11 +46,11 @@ public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
             return HandCategory.StraightFlush;
         }
 
-        if (fourOfAKindExistenceValidator.validateExistence(hand)) {
+        if (fourOfAKindExistenceValidator.validateExistence(hand, cardCategoryCountMapper)) {
             return HandCategory.FourOfAKind;
         }
 
-        if (threeOfAKindExistenceValidator.validateExistence(hand) && onePairExistenceValidator.validateExistence(hand)) {
+        if (threeOfAKindExistenceValidator.validateExistence(hand, cardCategoryCountMapper) && onePairExistenceValidator.validateExistence(hand, cardCategoryCountMapper)) {
             return HandCategory.FullHouse;
         }
 
@@ -56,15 +62,15 @@ public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
             return HandCategory.Straight;
         }
 
-        if (threeOfAKindExistenceValidator.validateExistence(hand)) {
+        if (threeOfAKindExistenceValidator.validateExistence(hand, cardCategoryCountMapper)) {
             return HandCategory.ThreeOfAKind;
         }
 
-        if (twoPairExistenceValidator.validateExistence(hand)) {
+        if (twoPairExistenceValidator.validateExistence(hand, cardCategoryCountMapper)) {
             return HandCategory.TwoPair;
         }
 
-        if (onePairExistenceValidator.validateExistence(hand)) {
+        if (onePairExistenceValidator.validateExistence(hand, cardCategoryCountMapper)) {
             return HandCategory.OnePair;
         }
 
