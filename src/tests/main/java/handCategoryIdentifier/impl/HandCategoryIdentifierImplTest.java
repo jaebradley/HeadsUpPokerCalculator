@@ -44,6 +44,13 @@ public class HandCategoryIdentifierImplTest {
         }
     };
 
+    private final CardCategoryPairCounter cardCategoryPairCounter = new CardCategoryPairCounter() {
+        @Override
+        public int countCardCategoryPairs(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+            return 0;
+        }
+    };
+
     private final FlushExistenceValidator flushNonExistenceValidator = new FlushExistenceValidator() {
         @Override
         public boolean validateExistence(final Hand hand, final DistinctSuitsReturner distinctSuitsReturner) {

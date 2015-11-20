@@ -1,4 +1,4 @@
-package main.java.kickersReturner.impl;
+package main.java.kickersCalculator.impl;
 
 import main.java.common.model.*;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
@@ -8,8 +8,8 @@ import org.junit.Test;
 import java.util.HashSet;
 import java.util.TreeSet;
 
-public class StraightKickersReturnerImplTest {
-    private final StraightKickersReturnerImpl straightKickersReturner = new StraightKickersReturnerImpl();
+public class StraightKickersCalculatorImplTest {
+    private final StraightKickersCalculatorImpl straightKickersReturner = new StraightKickersCalculatorImpl();
     private final SortedCardCategoryReturner sortedCardCategoryReturner = new SortedCardCategoryReturner() {
         @Override
         public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
@@ -36,7 +36,7 @@ public class StraightKickersReturnerImplTest {
     };
 
     @Test
-    public void testExpected() {
+    public void testExpected() throws Exception {
         final HashSet<Card> cards = new HashSet<>();
         cards.add(new Card(CardCategory.THREE, Suit.CLUBS));
         cards.add(new Card(CardCategory.FOUR, Suit.DIAMONDS));
@@ -44,12 +44,12 @@ public class StraightKickersReturnerImplTest {
         cards.add(new Card(CardCategory.JACK, Suit.SPADES));
         cards.add(new Card(CardCategory.NINE, Suit.SPADES));
         final Hand hand = new Hand(cards);
-        final StraightKickers straightKickers = straightKickersReturner.returnKickers(hand, sortedCardCategoryReturner);
+        final StraightKickers straightKickers = straightKickersReturner.calculateKickers(hand, sortedCardCategoryReturner);
         Assert.assertEquals(CardCategory.ACE, straightKickers.getHighestCardCategory());
     }
 
     @Test
-    public void testLowStraight() {
+    public void testLowStraight() throws Exception  {
         final HashSet<Card> cards = new HashSet<>();
         cards.add(new Card(CardCategory.THREE, Suit.CLUBS));
         cards.add(new Card(CardCategory.FOUR, Suit.DIAMONDS));
@@ -57,7 +57,7 @@ public class StraightKickersReturnerImplTest {
         cards.add(new Card(CardCategory.JACK, Suit.SPADES));
         cards.add(new Card(CardCategory.NINE, Suit.SPADES));
         final Hand hand = new Hand(cards);
-        final StraightKickers straightKickers = straightKickersReturner.returnKickers(hand, lowStraightCardCategoryReturner);
+        final StraightKickers straightKickers = straightKickersReturner.calculateKickers(hand, lowStraightCardCategoryReturner);
         Assert.assertEquals(CardCategory.FIVE, straightKickers.getHighestCardCategory());
     }
 
