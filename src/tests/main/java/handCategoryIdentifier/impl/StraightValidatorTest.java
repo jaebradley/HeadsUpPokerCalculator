@@ -18,7 +18,7 @@ public class StraightValidatorTest {
         @Override
         public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
             final TreeSet<CardCategory> cardCategories = new TreeSet<>();
-            cardCategories.add(CardCategory.EIGHT);
+            cardCategories.add(CardCategory.NINE);
             cardCategories.add(CardCategory.FIVE);
             return cardCategories;
         }
@@ -27,7 +27,7 @@ public class StraightValidatorTest {
         @Override
         public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
             final TreeSet<CardCategory> cardCategories = new TreeSet<>();
-            cardCategories.add(CardCategory.EIGHT);
+            cardCategories.add(CardCategory.NINE);
             cardCategories.add(CardCategory.FIVE);
             cardCategories.add(CardCategory.SIX);
             return cardCategories;
@@ -52,7 +52,7 @@ public class StraightValidatorTest {
             cardCategories.add(CardCategory.FIVE);
             cardCategories.add(CardCategory.SIX);
             cardCategories.add(CardCategory.NINE);
-            cardCategories.add(CardCategory.KING);
+            cardCategories.add(CardCategory.TWO);
             return cardCategories;
         }
     };
