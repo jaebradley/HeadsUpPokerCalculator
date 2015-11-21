@@ -5,6 +5,6 @@ import main.java.common.model.Hand;
 
 import java.util.TreeMap;
 
-public interface SortedCardCategoryCountMapper {
-    TreeMap<CardCategory, Integer> returnSortedCardCategoryCountAscending(final Hand hand);
+public interface SortedCardCategoryMapper {
+    TreeMap<CardCategory, Integer> returnSortedCardCategoryAscending(final Hand hand);
 }
