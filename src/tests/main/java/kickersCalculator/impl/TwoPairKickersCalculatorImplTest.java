@@ -4,7 +4,7 @@ import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
 import main.java.common.model.TwoPairKickers;
 import main.java.common.utils.interfaces.SortedCardCategoryMapper;
-import main.java.kickersCalculator.exceptions.HandDoesNotContainThreeDifferentCardCategoriesException;
+import main.java.kickersCalculator.exceptions.HandDoesNotContainThreeDistinctCardCategoriesException;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainTwoOfAKindException;
 import org.junit.Assert;
 import org.junit.Test;
@@ -72,28 +72,28 @@ public class TwoPairKickersCalculatorImplTest {
     // test 2 pair and check values
 
     @Test
-    public void testDifferentCardCategories() throws HandDoesNotContainThreeDifferentCardCategoriesException, HandDoesNotContainTwoOfAKindException {
+    public void testDifferentCardCategories() throws HandDoesNotContainThreeDistinctCardCategoriesException, HandDoesNotContainTwoOfAKindException {
         try {
             twoPairKickersCalculator.calculateKickers(null, twoDifferentCardCategoriesMapper);
-        } catch (HandDoesNotContainThreeDifferentCardCategoriesException e) {
+        } catch (HandDoesNotContainThreeDistinctCardCategoriesException e) {
             // expected
         }
 
         try {
             twoPairKickersCalculator.calculateKickers(null, fourDifferentCardCategoriesMapper);
-        } catch (HandDoesNotContainThreeDifferentCardCategoriesException e) {
+        } catch (HandDoesNotContainThreeDistinctCardCategoriesException e) {
             // expected
         }
 
         try {
             twoPairKickersCalculator.calculateKickers(null, fiveDifferentCardCategoriesMapper);
-        } catch (HandDoesNotContainThreeDifferentCardCategoriesException e) {
+        } catch (HandDoesNotContainThreeDistinctCardCategoriesException e) {
             // expected
         }
     }
 
     @Test
-    public void testThreeOfAKindCardCategories() throws HandDoesNotContainThreeDifferentCardCategoriesException, HandDoesNotContainTwoOfAKindException {
+    public void testThreeOfAKindCardCategories() throws HandDoesNotContainThreeDistinctCardCategoriesException, HandDoesNotContainTwoOfAKindException {
         try {
             twoPairKickersCalculator.calculateKickers(null, threeOfAKindCardCategoriesMapper);
         } catch (HandDoesNotContainTwoOfAKindException e) {
@@ -102,7 +102,7 @@ public class TwoPairKickersCalculatorImplTest {
     }
 
     @Test
-    public void testExpected() throws HandDoesNotContainThreeDifferentCardCategoriesException, HandDoesNotContainTwoOfAKindException {
+    public void testExpected() throws HandDoesNotContainThreeDistinctCardCategoriesException, HandDoesNotContainTwoOfAKindException {
         final TwoPairKickers twoPairKickers = twoPairKickersCalculator.calculateKickers(null, twoPairCardCategoriesMapper);
         Assert.assertNotNull(twoPairKickers);
         Assert.assertEquals(CardCategory.ACE, twoPairKickers.getHighestPairCardCategory());
