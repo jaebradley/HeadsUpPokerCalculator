@@ -139,24 +139,41 @@ public class HandCategoryIdentifierImplTest {
 
     @Test
     public void testStraightFlush() {
-        final HashSet<Card> cards = new HashSet<>();
-        cards.add(new Card(CardCategory.ACE, Suit.CLUBS));
-        cards.add(new Card(CardCategory.TWO, Suit.CLUBS));
-        cards.add(new Card(CardCategory.JACK, Suit.CLUBS));
-        cards.add(new Card(CardCategory.FOUR, Suit.DIAMONDS));
-        cards.add(new Card(CardCategory.SEVEN, Suit.HEARTS));
-        final Hand hand = new Hand(cards);
-        final HandCategoryIdentifierImpl handCategoryIdentifier1 = new HandCategoryIdentifierImpl(
-                flushExistenceValidator,
-                straightExistenceValidator,
-                fourOfAKindExistenceValidator,
-                threeOfAKindExistenceValidator,
-                twoPairExistenceValidator,
-                onePairExistenceValidator,
-                sortedCardCategoryReturner,
-                distinctSuitsReturner, cardCategoryCountMapper, cardCategoryPairCounter);
+        final HandCategoryIdentifierImpl handCategoryIdentifier1 = new HandCategoryIdentifierImpl();
 
-        Assert.assertEquals(HandCategory.StraightFlush, handCategoryIdentifier1.identifyHandCategory(hand));
+        Assert.assertEquals(
+                HandCategory.StraightFlush,
+                handCategoryIdentifier1.identifyHandCategory(
+                        null,
+                        flushExistenceValidator,
+                        straightExistenceValidator,
+                        fourOfAKindExistenceValidator,
+                        threeOfAKindExistenceValidator,
+                        twoPairExistenceValidator,
+                        onePairExistenceValidator,
+                        sortedCardCategoryReturner,
+                        distinctSuitsReturner,
+                        cardCategoryCountMapper,
+                        cardCategoryPairCounter
+                )
+        );
+
+        Assert.assertEquals(
+                HandCategory.StraightFlush,
+                handCategoryIdentifier1.identifyHandCategory(
+                        null,
+                        flushExistenceValidator,
+                        straightExistenceValidator,
+                        fourOfAKindNonExistenceValidator,
+                        threeOfAKindNonExistenceValidator,
+                        twoPairNonExistenceValidator,
+                        onePairNonExistenceValidator,
+                        sortedCardCategoryReturner,
+                        distinctSuitsReturner,
+                        cardCategoryCountMapper,
+                        cardCategoryPairCounter
+                )
+        );
     }
 
 }

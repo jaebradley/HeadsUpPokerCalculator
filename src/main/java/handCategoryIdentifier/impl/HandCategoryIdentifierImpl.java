@@ -9,18 +9,10 @@ import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.handCategoryIdentifier.interfaces.*;
 
 public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
-    private final FlushExistenceValidator flushExistenceValidator;
-    private final StraightExistenceValidator straightExistenceValidator;
-    private final FourOfAKindExistenceValidator fourOfAKindExistenceValidator;
-    private final ThreeOfAKindExistenceValidator threeOfAKindExistenceValidator;
-    private final TwoPairExistenceValidator twoPairExistenceValidator;
-    private final OnePairExistenceValidator onePairExistenceValidator;
-    private final SortedCardCategoryReturner sortedCardCategoryReturner;
-    private final DistinctSuitsReturner distinctSuitsReturner;
-    private final CardCategoryCountMapper cardCategoryCountMapper;
-    private final CardCategoryPairCounter cardCategoryPairCounter;
 
-    public HandCategoryIdentifierImpl(
+    @Override
+    public HandCategory identifyHandCategory(
+            final Hand hand,
             final FlushExistenceValidator flushExistenceValidator,
             final StraightExistenceValidator straightExistenceValidator,
             final FourOfAKindExistenceValidator fourOfAKindExistenceValidator,
@@ -30,21 +22,8 @@ public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
             final SortedCardCategoryReturner sortedCardCategoryReturner,
             final DistinctSuitsReturner distinctSuitsReturner,
             final CardCategoryCountMapper cardCategoryCountMapper,
-            final CardCategoryPairCounter cardCategoryPairCounter) {
-        this.flushExistenceValidator = flushExistenceValidator;
-        this.straightExistenceValidator = straightExistenceValidator;
-        this.fourOfAKindExistenceValidator = fourOfAKindExistenceValidator;
-        this.threeOfAKindExistenceValidator = threeOfAKindExistenceValidator;
-        this.twoPairExistenceValidator = twoPairExistenceValidator;
-        this.onePairExistenceValidator = onePairExistenceValidator;
-        this.sortedCardCategoryReturner = sortedCardCategoryReturner;
-        this.distinctSuitsReturner = distinctSuitsReturner;
-        this.cardCategoryCountMapper = cardCategoryCountMapper;
-        this.cardCategoryPairCounter = cardCategoryPairCounter;
-    }
-
-    @Override
-    public HandCategory identifyHandCategory(final Hand hand) {
+            final CardCategoryPairCounter cardCategoryPairCounter
+    ) {
         if (flushExistenceValidator.validateExistence(hand, distinctSuitsReturner) && straightExistenceValidator.validateExistence(hand, sortedCardCategoryReturner)) {
             return HandCategory.StraightFlush;
         }
