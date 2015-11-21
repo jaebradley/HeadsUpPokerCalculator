@@ -4,7 +4,6 @@ import main.java.common.model.CardCategory;
 import main.java.common.model.FlushKickers;
 import main.java.common.model.Hand;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
-import main.java.kickersCalculator.exception.IncorrectNumberOfCardCategoriesException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -45,15 +44,5 @@ public class FlushKickersCalculatorImplTest {
         Assert.assertEquals(results.getThirdHighestCardCategory(), CardCategory.FIVE);
         Assert.assertEquals(results.getFourthHighestCardCategory(), CardCategory.THREE);
         Assert.assertEquals(results.getFifthHighestCardCategory(), CardCategory.TWO);
-    }
-
-    @Test
-    public void testIncorrectCards() throws Exception {
-        try {
-            flushKickersCalculator.calculateKickers(null, wrongNumberOfCardCategoriesReturner);
-            Assert.fail();
-        } catch (IncorrectNumberOfCardCategoriesException e) {
-            // expected
-        }
     }
 }
