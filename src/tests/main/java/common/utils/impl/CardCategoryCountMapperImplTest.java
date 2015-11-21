@@ -43,4 +43,55 @@ public class CardCategoryCountMapperImplTest {
         expectedCardCategoryCountMap.put(CardCategory.TWO, new Integer(1));
         Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapper.returnCardCategoryCountMap(twoDistinctCardsHand));
     }
+
+    @Test
+    public void threeDistinctCardCategories() {
+        final HashSet<Card> threeDistinctCards = new HashSet<>();
+        threeDistinctCards.add(new Card(CardCategory.ACE, Suit.CLUBS));
+        threeDistinctCards.add(new Card(CardCategory.ACE, Suit.DIAMONDS));
+        threeDistinctCards.add(new Card(CardCategory.ACE, Suit.HEARTS));
+        threeDistinctCards.add(new Card(CardCategory.THREE, Suit.SPADES));
+        threeDistinctCards.add(new Card(CardCategory.TWO, Suit.SPADES));
+        final Hand threeDistinctCardsHand = new Hand(threeDistinctCards);
+        final HashMap<CardCategory, Integer> expectedCardCategoryCountMap = new HashMap<>();
+        expectedCardCategoryCountMap.put(CardCategory.ACE, new Integer(3));
+        expectedCardCategoryCountMap.put(CardCategory.TWO, new Integer(1));
+        expectedCardCategoryCountMap.put(CardCategory.THREE, new Integer(1));
+        Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapper.returnCardCategoryCountMap(threeDistinctCardsHand));
+    }
+
+    @Test
+    public void fourDistinctCardCategories() {
+        final HashSet<Card> fourDistinctCards = new HashSet<>();
+        fourDistinctCards.add(new Card(CardCategory.ACE, Suit.CLUBS));
+        fourDistinctCards.add(new Card(CardCategory.ACE, Suit.DIAMONDS));
+        fourDistinctCards.add(new Card(CardCategory.FOUR, Suit.HEARTS));
+        fourDistinctCards.add(new Card(CardCategory.THREE, Suit.SPADES));
+        fourDistinctCards.add(new Card(CardCategory.TWO, Suit.SPADES));
+        final Hand fourDistinctCardsHand = new Hand(fourDistinctCards);
+        final HashMap<CardCategory, Integer> expectedCardCategoryCountMap = new HashMap<>();
+        expectedCardCategoryCountMap.put(CardCategory.ACE, new Integer(2));
+        expectedCardCategoryCountMap.put(CardCategory.TWO, new Integer(1));
+        expectedCardCategoryCountMap.put(CardCategory.THREE, new Integer(1));
+        expectedCardCategoryCountMap.put(CardCategory.FOUR, new Integer(1));
+        Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapper.returnCardCategoryCountMap(fourDistinctCardsHand));
+    }
+
+    @Test
+    public void fiveDistinctCardCategories() {
+        final HashSet<Card> fiveDistinctCards = new HashSet<>();
+        fiveDistinctCards.add(new Card(CardCategory.ACE, Suit.CLUBS));
+        fiveDistinctCards.add(new Card(CardCategory.FIVE, Suit.DIAMONDS));
+        fiveDistinctCards.add(new Card(CardCategory.FOUR, Suit.HEARTS));
+        fiveDistinctCards.add(new Card(CardCategory.THREE, Suit.SPADES));
+        fiveDistinctCards.add(new Card(CardCategory.TWO, Suit.SPADES));
+        final Hand fiveDistinctCardsHand = new Hand(fiveDistinctCards);
+        final HashMap<CardCategory, Integer> expectedCardCategoryCountMap = new HashMap<>();
+        expectedCardCategoryCountMap.put(CardCategory.ACE, new Integer(1));
+        expectedCardCategoryCountMap.put(CardCategory.TWO, new Integer(1));
+        expectedCardCategoryCountMap.put(CardCategory.THREE, new Integer(1));
+        expectedCardCategoryCountMap.put(CardCategory.FOUR, new Integer(1));
+        expectedCardCategoryCountMap.put(CardCategory.FIVE, new Integer(1));
+        Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapper.returnCardCategoryCountMap(fiveDistinctCardsHand));
+    }
 }
