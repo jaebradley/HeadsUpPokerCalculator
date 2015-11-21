@@ -9,6 +9,8 @@ import java.util.HashMap;
 
 public class CardCategoryCountMapperImpl implements CardCategoryCountMapper {
     public HashMap<CardCategory, Integer> returnCardCategoryCountMap(final Hand hand) {
+        assert null != hand;
+
         final HashMap<CardCategory, Integer> cardCategoryCountMap = new HashMap<>();
         for (final Card card : hand.getCards()) {
             final int keyCount = cardCategoryCountMap.containsKey(card.getCategory()) ? cardCategoryCountMap.get(card.getCategory()) : 0;
