@@ -1,17 +1,17 @@
 package main.java.kickersCalculator.impl;
 
 import main.java.common.model.CardCategory;
-import main.java.common.model.FlushKickers;
+import main.java.common.model.HighCardKickers;
 import main.java.common.model.Hand;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainFiveDistinctCardCategoriesException;
-import main.java.kickersCalculator.interfaces.FlushKickersCalculator;
+import main.java.kickersCalculator.interfaces.HighCardKickersCalculator;
 
 import java.util.TreeSet;
 
-public class FlushKickersCalculatorImpl implements FlushKickersCalculator {
+public class HighCardKickersCalculatorImpl implements HighCardKickersCalculator {
     @Override
-    public FlushKickers calculateKickers(
+    public HighCardKickers calculateKickers(
             final Hand hand,
             final SortedCardCategoryReturner sortedCardCategoryReturner
     ) throws HandDoesNotContainFiveDistinctCardCategoriesException {
@@ -22,7 +22,7 @@ public class FlushKickersCalculatorImpl implements FlushKickersCalculator {
         }
 
         final CardCategory[] cardCategories = cardCategoriesSet.toArray(new CardCategory[cardCategoriesSet.size()]);
-        return new FlushKickers(
+        return new HighCardKickers(
                 cardCategories[cardCategories.length - 1],
                 cardCategories[cardCategories.length - 2],
                 cardCategories[cardCategories.length - 3],

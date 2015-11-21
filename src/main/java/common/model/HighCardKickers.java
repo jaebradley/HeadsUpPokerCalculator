@@ -1,13 +1,13 @@
 package main.java.common.model;
 
-public class FlushKickers {
+public class HighCardKickers {
     private final CardCategory highestCardCategory;
     private final CardCategory secondHighestCardCategory;
     private final CardCategory thirdHighestCardCategory;
     private final CardCategory fourthHighestCardCategory;
     private final CardCategory fifthHighestCardCategory;
 
-    public FlushKickers(
+    public HighCardKickers(
             final CardCategory highestCardCategory,
             final CardCategory secondHighestCardCategory,
             final CardCategory thirdHighestCardCategory,

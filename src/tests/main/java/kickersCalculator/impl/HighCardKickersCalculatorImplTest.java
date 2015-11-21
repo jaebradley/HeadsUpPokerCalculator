@@ -1,7 +1,7 @@
 package main.java.kickersCalculator.impl;
 
 import main.java.common.model.CardCategory;
-import main.java.common.model.FlushKickers;
+import main.java.common.model.HighCardKickers;
 import main.java.common.model.Hand;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import org.junit.Assert;
@@ -9,8 +9,8 @@ import org.junit.Test;
 
 import java.util.TreeSet;
 
-public class FlushKickersCalculatorImplTest {
-    private final FlushKickersCalculatorImpl flushKickersCalculator = new FlushKickersCalculatorImpl();
+public class HighCardKickersCalculatorImplTest {
+    private final HighCardKickersCalculatorImpl flushKickersCalculator = new HighCardKickersCalculatorImpl();
     private final SortedCardCategoryReturner sortedCardCategoryReturner = new SortedCardCategoryReturner() {
         @Override
         public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
@@ -37,7 +37,7 @@ public class FlushKickersCalculatorImplTest {
 
     @Test
     public void testExpected() throws Exception {
-        final FlushKickers results = flushKickersCalculator.calculateKickers(null, sortedCardCategoryReturner);
+        final HighCardKickers results = flushKickersCalculator.calculateKickers(null, sortedCardCategoryReturner);
         Assert.assertNotNull(results);
         Assert.assertEquals(results.getHighestCardCategory(), CardCategory.ACE);
         Assert.assertEquals(results.getSecondHighestCardCategory(), CardCategory.JACK);
