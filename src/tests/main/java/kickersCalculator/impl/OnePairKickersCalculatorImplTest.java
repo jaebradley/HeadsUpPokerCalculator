@@ -1,18 +1,16 @@
 package main.java.kickersCalculator.impl;
 
-import main.java.common.model.CardCategory;
-import main.java.common.model.Hand;
-import main.java.common.model.OnePairKickers;
+import main.java.common.model.*;
 import main.java.common.utils.interfaces.SortedCardCategoryMapper;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainFourDistinctCardCategoriesException;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainTwoOfAKindException;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashSet;
 import java.util.TreeMap;
 
 public class OnePairKickersCalculatorImplTest {
-    private final OnePairKickersCalculatorImpl onePairKickersCalculator = new OnePairKickersCalculatorImpl();
     private final SortedCardCategoryMapper twoDistinctCardCategoriesMapper = new SortedCardCategoryMapper() {
         @Override
         public TreeMap<CardCategory, Integer> returnSortedCardCategoryAscending(final Hand hand) {
@@ -59,26 +57,46 @@ public class OnePairKickersCalculatorImplTest {
         }
     };
 
+    private final OnePairKickersCalculatorImpl twoDistinctCardCategoriesKickersCalculator = new OnePairKickersCalculatorImpl(
+            twoDistinctCardCategoriesMapper
+    );
+
+    private final OnePairKickersCalculatorImpl threeDistinctCardCategoriesKickersCalculator = new OnePairKickersCalculatorImpl(
+            threeDistinctCardCategoriesMapper
+    );
+
+    private final OnePairKickersCalculatorImpl fiveDistinctCardCategoriesKickersCalculator = new OnePairKickersCalculatorImpl(
+            fiveDistinctCardCategoriesMapper
+    );
     // Tests
     // Test 2, 3, 5 Distinct Card
     // Test Expected and get Values
 
     @Test
     public void testDistinctCardException() throws HandDoesNotContainFourDistinctCardCategoriesException, HandDoesNotContainTwoOfAKindException {
+
+        final HashSet<Card> cardHashSet = new HashSet<>();
+        cardHashSet.add(new Card(CardCategory.ACE, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TWO, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.JACK, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.DIAMONDS));
+        final Hand fooHand = new Hand(cardHashSet);
+
         try {
-            onePairKickersCalculator.calculateKickers(null, twoDistinctCardCategoriesMapper);
+            twoDistinctCardCategoriesKickersCalculator.calculateKickers(fooHand);
         } catch (HandDoesNotContainFourDistinctCardCategoriesException e) {
             // expected
         }
 
         try {
-            onePairKickersCalculator.calculateKickers(null, threeDistinctCardCategoriesMapper);
+            threeDistinctCardCategoriesKickersCalculator.calculateKickers(fooHand);
         } catch (HandDoesNotContainFourDistinctCardCategoriesException e) {
             // expected
         }
 
         try {
-            onePairKickersCalculator.calculateKickers(null, fiveDistinctCardCategoriesMapper);
+            fiveDistinctCardCategoriesKickersCalculator.calculateKickers(fooHand);
         } catch (HandDoesNotContainFourDistinctCardCategoriesException e) {
             // expected
         }
@@ -86,7 +104,15 @@ public class OnePairKickersCalculatorImplTest {
 
     @Test
     public void testExpected() throws HandDoesNotContainFourDistinctCardCategoriesException, HandDoesNotContainTwoOfAKindException {
-        final OnePairKickers onePairKickers = onePairKickersCalculator.calculateKickers(null, onePairCardCategoriesMapper);
+        final HashSet<Card> cardHashSet = new HashSet<>();
+        cardHashSet.add(new Card(CardCategory.ACE, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TWO, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.JACK, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.DIAMONDS));
+        final Hand fooHand = new Hand(cardHashSet);
+
+        final OnePairKickers onePairKickers = twoDistinctCardCategoriesKickersCalculator.calculateKickers(fooHand);
         Assert.assertNotNull(onePairKickers);
         Assert.assertEquals(onePairKickers.getPairCardCategory(), CardCategory.FIVE);
         Assert.assertEquals(onePairKickers.getHighestRemainingCardCategory(), CardCategory.ACE);
