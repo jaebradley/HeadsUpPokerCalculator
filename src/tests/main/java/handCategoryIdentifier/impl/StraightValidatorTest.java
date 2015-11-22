@@ -1,14 +1,17 @@
 package main.java.handCategoryIdentifier.impl;
 
+import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
+import main.java.common.model.Suit;
+import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashSet;
 import java.util.TreeSet;
 
 public class StraightValidatorTest {
-    private final StraightExistenceValidatorImpl straightValidator = new StraightExistenceValidatorImpl();
     private final SortedCardCategoryReturner twoDistinctSortedCardCategoryReturner = new SortedCardCategoryReturner() {
         @Override
         public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
@@ -87,6 +90,13 @@ public class StraightValidatorTest {
             return cardCategories;
         }
     };
+    private final StraightExistenceValidatorImpl twoDistinctValuesStraightValidator = new StraightExistenceValidatorImpl(twoDistinctSortedCardCategoryReturner);
+    private final StraightExistenceValidatorImpl threeDistinctValuesStraightValidator = new StraightExistenceValidatorImpl(threeDistinctSortedCardCategoryReturner);
+    private final StraightExistenceValidatorImpl fourDistinctValuesStraightValidator = new StraightExistenceValidatorImpl(fourDistinctSortedCardCategoryReturner);
+    private final StraightExistenceValidatorImpl fiveDistinctValuesStraightValidator = new StraightExistenceValidatorImpl(fiveDistinctSortedCardCategoryReturner);
+    private final StraightExistenceValidatorImpl lowStraightValidator = new StraightExistenceValidatorImpl(lowStraightSortedCardCategoryReturner);
+    private final StraightExistenceValidatorImpl middleStraightValidator = new StraightExistenceValidatorImpl(middleStraightSortedCardCategoryReturner);
+    private final StraightExistenceValidatorImpl highStraightValidator = new StraightExistenceValidatorImpl(highStraightSortedCardCategoryReturner);
 
 
 
@@ -97,16 +107,32 @@ public class StraightValidatorTest {
 
     @Test
     public void testDifferentDistinctValues() {
-        Assert.assertFalse(straightValidator.validateExistence(null, twoDistinctSortedCardCategoryReturner));
-        Assert.assertFalse(straightValidator.validateExistence(null, threeDistinctSortedCardCategoryReturner));
-        Assert.assertFalse(straightValidator.validateExistence(null, fourDistinctSortedCardCategoryReturner));
-        Assert.assertFalse(straightValidator.validateExistence(null, fiveDistinctSortedCardCategoryReturner));
+        final HashSet<Card> cardHashSet = new HashSet<>();
+        cardHashSet.add(new Card(CardCategory.ACE, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TWO, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.JACK, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.DIAMONDS));
+        final Hand fooHand = new Hand(cardHashSet);
+
+        Assert.assertFalse(twoDistinctValuesStraightValidator.straightExists(fooHand));
+        Assert.assertFalse(threeDistinctValuesStraightValidator.straightExists(fooHand));
+        Assert.assertFalse(fourDistinctValuesStraightValidator.straightExists(fooHand));
+        Assert.assertFalse(fiveDistinctValuesStraightValidator.straightExists(fooHand));
     }
 
     @Test
     public void testStraights() {
-        Assert.assertTrue(straightValidator.validateExistence(null, lowStraightSortedCardCategoryReturner));
-        Assert.assertTrue(straightValidator.validateExistence(null, highStraightSortedCardCategoryReturner));
-        Assert.assertTrue(straightValidator.validateExistence(null, middleStraightSortedCardCategoryReturner));
+        final HashSet<Card> cardHashSet = new HashSet<>();
+        cardHashSet.add(new Card(CardCategory.ACE, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TWO, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.JACK, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.DIAMONDS));
+        final Hand fooHand = new Hand(cardHashSet);
+
+        Assert.assertTrue(lowStraightValidator.straightExists(fooHand));
+        Assert.assertTrue(middleStraightValidator.straightExists(fooHand));
+        Assert.assertTrue(highStraightValidator.straightExists(fooHand));
     }
 }

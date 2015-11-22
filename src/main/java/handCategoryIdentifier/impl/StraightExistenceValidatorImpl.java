@@ -16,7 +16,12 @@ public class StraightExistenceValidatorImpl implements StraightExistenceValidato
     }
 
     public boolean straightExists(final Hand hand) {
+        assert null != hand;
+
         final TreeSet<CardCategory> cardCategories = sortedCardCategoryReturner.returnCardCategoriesInAscendingOrder(hand);
+
+        assert null != cardCategories;
+
         return  (5 == cardCategories.size()) &&
                 (
                         (
