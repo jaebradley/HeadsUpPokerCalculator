@@ -19,7 +19,7 @@ public class StraightExistenceValidatorImpl implements StraightExistenceValidato
         final TreeSet<CardCategory> cardCategories = sortedCardCategoryReturner.returnCardCategoriesInAscendingOrder(hand);
         return  (5 == cardCategories.size()) &&
                 (
-                        (s
+                        (
                                 cardCategories.contains(CardCategory.ACE) &&
                                 cardCategories.contains(CardCategory.TWO) &&
                                 cardCategories.contains(CardCategory.THREE) &&
