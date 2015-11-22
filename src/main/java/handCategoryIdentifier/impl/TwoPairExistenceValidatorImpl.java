@@ -2,11 +2,19 @@ package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Hand;
 import main.java.common.utils.impl.CardCategoryPairCounterImpl;
+import main.java.common.utils.interfaces.CardCategoryPairCounter;
 import main.java.handCategoryIdentifier.interfaces.HandCategoryExistenceValidator;
+import main.java.handCategoryIdentifier.interfaces.TwoPairExistenceValidator;
 
-public class TwoPairExistenceValidatorImpl implements HandCategoryExistenceValidator {
+public class TwoPairExistenceValidatorImpl implements TwoPairExistenceValidator {
+    private final CardCategoryPairCounter cardCategoryPairCounter;
+
+    public TwoPairExistenceValidatorImpl(final CardCategoryPairCounter cardCategoryPairCounter) {
+        this.cardCategoryPairCounter = cardCategoryPairCounter;
+    }
+
     @Override
-    public boolean validateExistence(final Hand hand) {
-        return 2 == CardCategoryPairCounterImpl.countCardCategoryPairs(hand);
+    public boolean twoPairExists(final Hand hand) {
+        return 2 == cardCategoryPairCounter.countCardCategoryPairs(hand);
     }
 }
