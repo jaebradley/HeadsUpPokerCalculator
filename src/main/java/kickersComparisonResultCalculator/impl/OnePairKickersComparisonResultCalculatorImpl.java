@@ -4,8 +4,6 @@ import main.java.common.model.KickersComparisonResult;
 import main.java.common.model.OnePairKickers;
 import main.java.kickersComparisonResultCalculator.interfaces.OnePairKickersComparisonResultCalculator;
 
-import javax.management.RuntimeErrorException;
-import javax.rmi.CORBA.Tie;
 
 public class OnePairKickersComparisonResultCalculatorImpl implements OnePairKickersComparisonResultCalculator {
     @Override
