@@ -3,7 +3,6 @@ package main.java.kickersCalculator.impl;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
 import main.java.common.model.OnePairKickers;
-import main.java.common.utils.interfaces.SortedCardCategoryMapper;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainFourDistinctCardCategoriesException;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainTwoOfAKindException;
 import org.junit.Assert;

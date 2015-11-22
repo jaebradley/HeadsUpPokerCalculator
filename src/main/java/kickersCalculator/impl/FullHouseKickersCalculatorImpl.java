@@ -3,7 +3,6 @@ package main.java.kickersCalculator.impl;
 import main.java.common.model.CardCategory;
 import main.java.common.model.FullHouseKickers;
 import main.java.common.model.Hand;
-import main.java.common.utils.interfaces.CardCategoryCountMapper;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainThreeOfAKindException;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainTwoOfAKindException;
 import main.java.kickersCalculator.interfaces.FullHouseKickersCalculator;

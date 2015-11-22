@@ -8,8 +8,7 @@ import main.java.common.utils.interfaces.SortedCardCategoryMapper;
 
 import java.util.TreeMap;
 
-public class SortedCardCategoryMapperImpl implements SortedCardCategoryMapper {
-    @Override
+public final class SortedCardCategoryMapperImpl implements SortedCardCategoryMapper {
     public TreeMap<CardCategory, Integer> returnSortedCardCategoryAscending(final Hand hand) {
         final TreeMap<CardCategory, Integer> sortedCardCategoryCountMap = new TreeMap<>(new CardCategoryComparator());
         for (final Card card : hand.getCards()) {

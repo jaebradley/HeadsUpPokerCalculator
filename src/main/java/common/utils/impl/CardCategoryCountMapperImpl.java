@@ -8,6 +8,7 @@ import main.java.common.utils.interfaces.CardCategoryCountMapper;
 import java.util.HashMap;
 
 public class CardCategoryCountMapperImpl implements CardCategoryCountMapper {
+    @Override
     public HashMap<CardCategory, Integer> returnCardCategoryCountMap(final Hand hand) {
         assert null != hand;
 

@@ -7,8 +7,7 @@ import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 
 import java.util.TreeSet;
 
-public class SortedCardCategoryReturnerImpl implements SortedCardCategoryReturner {
-    @Override
+public final class SortedCardCategoryReturnerImpl implements SortedCardCategoryReturner {
     public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
         final TreeSet<CardCategory> sortedCardCategories = new TreeSet<>();
         for (final Card card : hand.getCards()) {

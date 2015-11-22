@@ -7,9 +7,14 @@ import main.java.common.utils.interfaces.CardCategoryPairCounter;
 
 import java.util.HashMap;
 
-public class CardCategoryPairCounterImpl implements CardCategoryPairCounter {
-    @Override
-    public int countCardCategoryPairs(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+public final class CardCategoryPairCounterImpl implements CardCategoryPairCounter {
+    private final CardCategoryCountMapper cardCategoryCountMapper;
+
+    public CardCategoryPairCounterImpl(final CardCategoryCountMapper cardCategoryCountMapper) {
+        this.cardCategoryCountMapper = cardCategoryCountMapper;
+    }
+
+    public int countCardCategoryPairs(final Hand hand) {
         final HashMap<CardCategory, Integer> cardCategoryCountMap = cardCategoryCountMapper.returnCardCategoryCountMap(hand);
         int pairCount = 0;
         for (final Integer value : cardCategoryCountMap.values()) {

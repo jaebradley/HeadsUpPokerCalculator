@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class CardCategoryCountMapperImplTest {
-    private final CardCategoryCountMapperImpl cardCategoryCountMapper = new CardCategoryCountMapperImpl();
+    private final CardCategoryCountMapperImpl cardCategoryCountMapperImpl = new CardCategoryCountMapperImpl();
 
     // tests
     // null case
@@ -20,7 +20,7 @@ public class CardCategoryCountMapperImplTest {
     @Test
     public void testNull() {
         try {
-            cardCategoryCountMapper.returnCardCategoryCountMap(null);
+            cardCategoryCountMapperImpl.returnCardCategoryCountMap(null);
             Assert.fail();
         } catch (AssertionError e) {
             // expected
@@ -39,7 +39,7 @@ public class CardCategoryCountMapperImplTest {
         final HashMap<CardCategory, Integer> expectedCardCategoryCountMap = new HashMap<>();
         expectedCardCategoryCountMap.put(CardCategory.ACE, new Integer(4));
         expectedCardCategoryCountMap.put(CardCategory.TWO, new Integer(1));
-        Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapper.returnCardCategoryCountMap(twoDistinctCardsHand));
+        Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapperImpl.returnCardCategoryCountMap(twoDistinctCardsHand));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class CardCategoryCountMapperImplTest {
         expectedCardCategoryCountMap.put(CardCategory.ACE, new Integer(3));
         expectedCardCategoryCountMap.put(CardCategory.TWO, new Integer(1));
         expectedCardCategoryCountMap.put(CardCategory.THREE, new Integer(1));
-        Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapper.returnCardCategoryCountMap(threeDistinctCardsHand));
+        Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapperImpl.returnCardCategoryCountMap(threeDistinctCardsHand));
     }
 
     @Test
@@ -72,7 +72,7 @@ public class CardCategoryCountMapperImplTest {
         expectedCardCategoryCountMap.put(CardCategory.TWO, new Integer(1));
         expectedCardCategoryCountMap.put(CardCategory.THREE, new Integer(1));
         expectedCardCategoryCountMap.put(CardCategory.FOUR, new Integer(1));
-        Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapper.returnCardCategoryCountMap(fourDistinctCardsHand));
+        Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapperImpl.returnCardCategoryCountMap(fourDistinctCardsHand));
     }
 
     @Test
@@ -90,6 +90,6 @@ public class CardCategoryCountMapperImplTest {
         expectedCardCategoryCountMap.put(CardCategory.THREE, new Integer(1));
         expectedCardCategoryCountMap.put(CardCategory.FOUR, new Integer(1));
         expectedCardCategoryCountMap.put(CardCategory.FIVE, new Integer(1));
-        Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapper.returnCardCategoryCountMap(fiveDistinctCardsHand));
+        Assert.assertEquals(expectedCardCategoryCountMap, cardCategoryCountMapperImpl.returnCardCategoryCountMap(fiveDistinctCardsHand));
     }
 }

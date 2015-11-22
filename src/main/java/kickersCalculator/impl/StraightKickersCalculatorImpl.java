@@ -3,7 +3,6 @@ package main.java.kickersCalculator.impl;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
 import main.java.common.model.StraightKickers;
-import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainFiveDistinctCardCategoriesException;
 import main.java.kickersCalculator.interfaces.StraightKickersCalculator;
 

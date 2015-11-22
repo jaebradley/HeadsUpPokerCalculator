@@ -1,7 +1,6 @@
 package main.java.kickersCalculator.impl;
 
 import main.java.common.model.*;
-import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import org.junit.Assert;
 import org.junit.Test;
 
