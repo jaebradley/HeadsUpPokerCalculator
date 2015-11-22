@@ -9,15 +9,14 @@ import main.java.headsUpResultCalculator.interfaces.HeadsUpResultCalculator;
 import main.java.kickersCalculator.models.KickerCalculators;
 
 public class HeadsUpResultCalculatorImpl implements HeadsUpResultCalculator{
+    private final HandCategoryIdentifier handCategoryIdentifier;
+
+    public HeadsUpResultCalculatorImpl(final HandCategoryIdentifier handCategoryIdentifier) {
+        this.handCategoryIdentifier = handCategoryIdentifier;
+    }
 
     @Override
-    public HeadsUpResult calculateHeadsUpResult(
-            final Hand dealerHand,
-            final Hand bigBlindHand,
-            final KickerCalculators kickerCalculators,
-            final HandCategoryExistenceValidators handCategoryExistenceValidators,
-            final HandCategoryIdentifier handCategoryIdentifier
-    ) {
-        final HandCategory dealerHandCategory = handCategoryIdentifier.identifyHandCategory(dealerHand);
+    public HeadsUpResult calculateHeadsUpResult(final Hand dealerHand, final Hand bigBlindHand, final KickerCalculators kickerCalculators, final HandCategoryExistenceValidators handCategoryExistenceValidators, final HandCategoryIdentifier handCategoryIdentifier) {
+        return null;
     }
 }
