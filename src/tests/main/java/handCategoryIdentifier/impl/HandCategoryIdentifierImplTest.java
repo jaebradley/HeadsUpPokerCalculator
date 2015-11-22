@@ -6,6 +6,7 @@ import main.java.common.model.HandCategory;
 import main.java.common.model.Suit;
 import main.java.common.utils.interfaces.CardCategoryCountMapper;
 import main.java.common.utils.interfaces.CardCategoryPairCounter;
+import main.java.common.utils.interfaces.DistinctSuitsReturner;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.handCategoryIdentifier.interfaces.*;
 import org.junit.Assert;
@@ -48,91 +49,91 @@ public class HandCategoryIdentifierImplTest {
 
     private final CardCategoryPairCounter cardCategoryPairCounter = new CardCategoryPairCounter() {
         @Override
-        public int countCardCategoryPairs(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public int countCardCategoryPairs(final Hand hand) {
             return 0;
         }
     };
 
     private final FlushExistenceValidator flushNonExistenceValidator = new FlushExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final DistinctSuitsReturner distinctSuitsReturner) {
+        public boolean flushExists(final Hand hand) {
             return false;
         }
     };
 
     private final FlushExistenceValidator flushExistenceValidator = new FlushExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final DistinctSuitsReturner distinctSuitsReturner) {
+        public boolean flushExists(final Hand hand) {
             return true;
         }
     };
 
     private final StraightExistenceValidator straightNonExistenceValidator = new StraightExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final SortedCardCategoryReturner sortedCardCategoryReturner) {
+        public boolean straightExists(final Hand hand) {
             return false;
         }
     };
 
     private final StraightExistenceValidator straightExistenceValidator = new StraightExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final SortedCardCategoryReturner sortedCardCategoryReturner) {
+        public boolean straightExists(final Hand hand) {
             return true;
         }
     };
 
     private final FourOfAKindExistenceValidator fourOfAKindNonExistenceValidator = new FourOfAKindExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean fourOfAKindExists(final Hand hand) {
             return false;
         }
     };
 
     private final FourOfAKindExistenceValidator fourOfAKindExistenceValidator = new FourOfAKindExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean fourOfAKindExists(final Hand hand) {
             return true;
         }
     };
 
     private final ThreeOfAKindExistenceValidator threeOfAKindNonExistenceValidator = new ThreeOfAKindExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean threeOfAKindExists(final Hand hand) {
             return false;
         }
     };
 
     private final ThreeOfAKindExistenceValidator threeOfAKindExistenceValidator = new ThreeOfAKindExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean threeOfAKindExists(final Hand hand) {
             return true;
         }
     };
 
     private final TwoPairExistenceValidator twoPairNonExistenceValidator = new TwoPairExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryPairCounter cardCategoryPairCounter, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean twoPairExists(final Hand hand) {
             return false;
         }
     };
 
     private final TwoPairExistenceValidator twoPairExistenceValidator = new TwoPairExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryPairCounter cardCategoryPairCounter, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean twoPairExists(final Hand hand) {
             return true;
         }
     };
 
     private final OnePairExistenceValidator onePairNonExistenceValidator = new OnePairExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryPairCounter cardCategoryPairCounter, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean onePairExists(final Hand hand) {
             return false;
         }
     };
 
     private final OnePairExistenceValidator onePairExistenceValidator = new OnePairExistenceValidator() {
         @Override
-        public boolean validateExistence(final Hand hand, final CardCategoryPairCounter cardCategoryPairCounter, final CardCategoryCountMapper cardCategoryCountMapper) {
+        public boolean onePairExists(final Hand hand) {
             return true;
         }
     };
@@ -141,39 +142,26 @@ public class HandCategoryIdentifierImplTest {
 
     @Test
     public void testStraightFlush() {
-        final HandCategoryIdentifierImpl handCategoryIdentifier1 = new HandCategoryIdentifierImpl();
+        final HandCategoryIdentifierImpl handCategoryIdentifier1 = new HandCategoryIdentifierImpl(
+                flushExistenceValidator,
+                straightExistenceValidator,
+                fourOfAKindExistenceValidator,
+                threeOfAKindExistenceValidator,
+                twoPairExistenceValidator,
+                onePairExistenceValidator
+        );
 
         Assert.assertEquals(
                 HandCategory.StraightFlush,
                 handCategoryIdentifier1.identifyHandCategory(
-                        null,
-                        flushExistenceValidator,
-                        straightExistenceValidator,
-                        fourOfAKindExistenceValidator,
-                        threeOfAKindExistenceValidator,
-                        twoPairExistenceValidator,
-                        onePairExistenceValidator,
-                        sortedCardCategoryReturner,
-                        distinctSuitsReturner,
-                        cardCategoryCountMapper,
-                        cardCategoryPairCounter
+                        null
                 )
         );
 
         Assert.assertEquals(
                 HandCategory.StraightFlush,
                 handCategoryIdentifier1.identifyHandCategory(
-                        null,
-                        flushExistenceValidator,
-                        straightExistenceValidator,
-                        fourOfAKindNonExistenceValidator,
-                        threeOfAKindNonExistenceValidator,
-                        twoPairNonExistenceValidator,
-                        onePairNonExistenceValidator,
-                        sortedCardCategoryReturner,
-                        distinctSuitsReturner,
-                        cardCategoryCountMapper,
-                        cardCategoryPairCounter
+                        null
                 )
         );
     }
