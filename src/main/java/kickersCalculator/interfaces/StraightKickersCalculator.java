@@ -6,7 +6,6 @@ import main.java.kickersCalculator.exceptions.HandDoesNotContainFiveDistinctCard
 
 public interface StraightKickersCalculator {
     StraightKickers calculateKickers(
-            final Hand hand,
-            final SortedCardCategoryReturner sortedCardCategoryReturner
+            final Hand hand
     ) throws HandDoesNotContainFiveDistinctCardCategoriesException;
 }

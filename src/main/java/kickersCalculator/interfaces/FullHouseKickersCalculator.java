@@ -7,8 +7,7 @@ import main.java.kickersCalculator.exceptions.HandDoesNotContainTwoOfAKindExcept
 
 public interface FullHouseKickersCalculator {
     FullHouseKickers calculateKickers(
-            final Hand hand,
-            final CardCategoryCountMapper cardCategoryCountMapper
+            final Hand hand
     ) throws HandDoesNotContainThreeOfAKindException,
             HandDoesNotContainTwoOfAKindException;
 }

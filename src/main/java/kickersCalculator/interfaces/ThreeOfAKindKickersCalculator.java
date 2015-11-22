@@ -7,8 +7,7 @@ import main.java.kickersCalculator.exceptions.HandDoesNotContainThreeOfAKindExce
 
 public interface ThreeOfAKindKickersCalculator {
     ThreeOfAKindKickers calculateKickers(
-            final Hand hand,
-            final SortedCardCategoryMapper sortedCardCategoryMapper
+            final Hand hand
     ) throws HandDoesNotContainThreeOfAKindException,
             HandDoesNotContainThreeDistinctCardCategoriesException;
 }

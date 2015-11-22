@@ -3,14 +3,21 @@ package main.java.kickersCalculator.impl;
 import main.java.common.model.CardCategory;
 import main.java.common.model.FourOfAKindKickers;
 import main.java.common.model.Hand;
+import main.java.common.utils.interfaces.CardCategoryCountMapper;
 import main.java.kickersCalculator.interfaces.FourOfAKindKickersCalculator;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class FourOfAKindKickersCalculatorImpl implements FourOfAKindKickersCalculator {
+    private final CardCategoryCountMapper cardCategoryCountMapper;
+
+    public FourOfAKindKickersCalculatorImpl(final CardCategoryCountMapper cardCategoryCountMapper) {
+        this.cardCategoryCountMapper = cardCategoryCountMapper;
+    }
+
     @Override
-    public FourOfAKindKickers calculateKickers(final Hand hand, final CardCategoryCountMapper cardCategoryCountMapper) {
+    public FourOfAKindKickers calculateKickers(final Hand hand) {
         final HashMap<CardCategory, Integer> cardCategoryIntegerHashMap = cardCategoryCountMapper.returnCardCategoryCountMap(hand);
         CardCategory fourOfAKindCardCategory = null;
         CardCategory remainingCardCategory = null;

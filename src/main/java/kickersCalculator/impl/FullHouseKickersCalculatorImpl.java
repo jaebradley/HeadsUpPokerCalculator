@@ -3,6 +3,7 @@ package main.java.kickersCalculator.impl;
 import main.java.common.model.CardCategory;
 import main.java.common.model.FullHouseKickers;
 import main.java.common.model.Hand;
+import main.java.common.utils.interfaces.CardCategoryCountMapper;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainThreeOfAKindException;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainTwoOfAKindException;
 import main.java.kickersCalculator.interfaces.FullHouseKickersCalculator;
@@ -11,10 +12,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FullHouseKickersCalculatorImpl implements FullHouseKickersCalculator {
+    private final CardCategoryCountMapper cardCategoryCountMapper;
+
+    public FullHouseKickersCalculatorImpl(final CardCategoryCountMapper cardCategoryCountMapper) {
+        this.cardCategoryCountMapper = cardCategoryCountMapper;
+    }
+
     @Override
     public FullHouseKickers calculateKickers(
-            final Hand hand,
-            final CardCategoryCountMapper cardCategoryCountMapper
+            final Hand hand
     ) throws HandDoesNotContainThreeOfAKindException, HandDoesNotContainTwoOfAKindException {
         final HashMap<CardCategory, Integer> cardCategoryIntegerHashMap = cardCategoryCountMapper.returnCardCategoryCountMap(hand);
 

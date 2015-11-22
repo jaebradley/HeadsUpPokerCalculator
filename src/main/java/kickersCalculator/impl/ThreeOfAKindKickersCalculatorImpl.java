@@ -3,6 +3,7 @@ package main.java.kickersCalculator.impl;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
 import main.java.common.model.ThreeOfAKindKickers;
+import main.java.common.utils.interfaces.SortedCardCategoryMapper;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainThreeDistinctCardCategoriesException;
 import main.java.kickersCalculator.exceptions.HandDoesNotContainThreeOfAKindException;
 import main.java.kickersCalculator.interfaces.ThreeOfAKindKickersCalculator;
@@ -11,10 +12,15 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class ThreeOfAKindKickersCalculatorImpl implements ThreeOfAKindKickersCalculator {
+    private final SortedCardCategoryMapper sortedCardCategoryMapper;
+
+    public ThreeOfAKindKickersCalculatorImpl(final SortedCardCategoryMapper sortedCardCategoryMapper) {
+        this.sortedCardCategoryMapper = sortedCardCategoryMapper;
+    }
+
     @Override
     public ThreeOfAKindKickers calculateKickers(
-            final Hand hand,
-            final SortedCardCategoryMapper sortedCardCategoryMapper
+            final Hand hand
     ) throws HandDoesNotContainThreeOfAKindException,
             HandDoesNotContainThreeDistinctCardCategoriesException
     {

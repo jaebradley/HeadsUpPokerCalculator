@@ -7,8 +7,7 @@ import main.java.kickersCalculator.exceptions.HandDoesNotContainTwoOfAKindExcept
 
 public interface TwoPairKickersCalculator {
     TwoPairKickers calculateKickers(
-            final Hand hand,
-            final SortedCardCategoryMapper sortedCardCategoryMapper
+            final Hand hand
     ) throws HandDoesNotContainThreeDistinctCardCategoriesException,
             HandDoesNotContainTwoOfAKindException;
 }
