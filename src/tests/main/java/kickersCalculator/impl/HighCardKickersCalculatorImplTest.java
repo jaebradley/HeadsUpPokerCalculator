@@ -1,8 +1,8 @@
 package main.java.kickersCalculator.impl;
 
 import main.java.common.model.CardCategory;
-import main.java.common.model.HighCardKickers;
 import main.java.common.model.Hand;
+import main.java.common.model.HighCardKickers;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import org.junit.Assert;
 import org.junit.Test;

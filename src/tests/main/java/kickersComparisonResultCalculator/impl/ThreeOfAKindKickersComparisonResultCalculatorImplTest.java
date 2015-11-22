@@ -6,8 +6,6 @@ import main.java.common.model.ThreeOfAKindKickers;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class ThreeOfAKindKickersComparisonResultCalculatorImplTest {
     private final ThreeOfAKindKickersComparisonResultCalculatorImpl threeOfAKindKickersComparisonResultCalculator = new ThreeOfAKindKickersComparisonResultCalculatorImpl();
 

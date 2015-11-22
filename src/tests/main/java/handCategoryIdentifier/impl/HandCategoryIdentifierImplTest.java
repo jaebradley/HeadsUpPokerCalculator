@@ -1,6 +1,9 @@
 package main.java.handCategoryIdentifier.impl;
 
-import main.java.common.model.*;
+import main.java.common.model.CardCategory;
+import main.java.common.model.Hand;
+import main.java.common.model.HandCategory;
+import main.java.common.model.Suit;
 import main.java.common.utils.interfaces.CardCategoryCountMapper;
 import main.java.common.utils.interfaces.CardCategoryPairCounter;
 import main.java.common.utils.interfaces.DistinctSuitsReturner;

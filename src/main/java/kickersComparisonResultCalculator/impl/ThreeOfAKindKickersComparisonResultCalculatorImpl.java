@@ -2,7 +2,6 @@ package main.java.kickersComparisonResultCalculator.impl;
 
 import main.java.common.model.KickersComparisonResult;
 import main.java.common.model.ThreeOfAKindKickers;
-import main.java.kickersCalculator.interfaces.ThreeOfAKindKickersCalculator;
 import main.java.kickersComparisonResultCalculator.interfaces.ThreeOfAKindKickersComparisonResultCalculator;
 
 public class ThreeOfAKindKickersComparisonResultCalculatorImpl implements ThreeOfAKindKickersComparisonResultCalculator {

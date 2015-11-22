@@ -10,8 +10,6 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import static org.junit.Assert.*;
-
 public class CardCategoryCountMapperImplTest {
     private final CardCategoryCountMapperImpl cardCategoryCountMapper = new CardCategoryCountMapperImpl();
 
