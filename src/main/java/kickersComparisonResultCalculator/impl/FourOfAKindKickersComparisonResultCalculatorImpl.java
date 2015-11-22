@@ -4,7 +4,7 @@ import main.java.common.model.FourOfAKindKickers;
 import main.java.common.model.KickersComparisonResult;
 import main.java.kickersComparisonResultCalculator.interfaces.FourOfAKindKickersComparisonResultCalculator;
 
-public class FourOfAKindKicersComparisonResultCalculatorImpl implements FourOfAKindKickersComparisonResultCalculator {
+public class FourOfAKindKickersComparisonResultCalculatorImpl implements FourOfAKindKickersComparisonResultCalculator {
     @Override
     public KickersComparisonResult calculateKickersComparisonResult(
             final FourOfAKindKickers fourOfAKindKickers1,

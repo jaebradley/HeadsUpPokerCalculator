@@ -6,10 +6,8 @@ import main.java.common.model.KickersComparisonResult;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class FourOfAKindKicersComparisonResultCalculatorImplTest {
-    private final FourOfAKindKicersComparisonResultCalculatorImpl fourOfAKindKicersComparisonResultCalculator = new FourOfAKindKicersComparisonResultCalculatorImpl();
+public class FourOfAKindKickersComparisonResultCalculatorImplTest {
+    private final FourOfAKindKickersComparisonResultCalculatorImpl fourOfAKindKicersComparisonResultCalculator = new FourOfAKindKickersComparisonResultCalculatorImpl();
 
     // Tests
     // Test each case

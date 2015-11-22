@@ -10,6 +10,8 @@ public class ThreeOfAKindKickers {
             final CardCategory highestRemainingCardCategory,
             final CardCategory lowestRemainingCardCategory
     ) {
+        assert highestRemainingCardCategory.getValue() > lowestRemainingCardCategory.getValue();
+
         this.threeOfAKindCardCategory = threeOfAKindCardCategory;
         this.highestRemainingCardCategory = highestRemainingCardCategory;
         this.lowestRemainingCardCategory = lowestRemainingCardCategory;
