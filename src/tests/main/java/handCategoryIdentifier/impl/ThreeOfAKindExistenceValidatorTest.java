@@ -1,14 +1,17 @@
 package main.java.handCategoryIdentifier.impl;
 
+import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
+import main.java.common.model.Suit;
+import main.java.common.utils.interfaces.CardCategoryCountMapper;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class ThreeOfAKindExistenceValidatorTest {
-    private final ThreeOfAKindExistenceValidatorImpl threeOfAKindExistenceValidator = new ThreeOfAKindExistenceValidatorImpl();
     private final CardCategoryCountMapper containsThreeCards = new CardCategoryCountMapper() {
         @Override
         public HashMap<CardCategory, Integer> returnCardCategoryCountMap(final Hand hand) {
@@ -25,12 +28,35 @@ public class ThreeOfAKindExistenceValidatorTest {
             return results;
         }
     };
+    private final ThreeOfAKindExistenceValidatorImpl containsThreeOfAKindExistenceValidator = new ThreeOfAKindExistenceValidatorImpl(containsThreeCards);
+    private final ThreeOfAKindExistenceValidatorImpl doesNotContainThreeOfAKindExistenceValidator = new ThreeOfAKindExistenceValidatorImpl(doesNotContainThreeCards);
 
     @Test
     public void testExpected() {
-        // TODO: add more test cases
-        Assert.assertTrue(threeOfAKindExistenceValidator.validateExistence(null, containsThreeCards));
-        Assert.assertFalse(threeOfAKindExistenceValidator.validateExistence(null, doesNotContainThreeCards));
+        try {
+            containsThreeOfAKindExistenceValidator.threeOfAKindExists(null);
+            Assert.fail();
+        } catch (AssertionError e) {
+            // expected
+        }
+
+        try {
+            doesNotContainThreeOfAKindExistenceValidator.threeOfAKindExists(null);
+            Assert.fail();
+        } catch (AssertionError e) {
+            // expected
+        }
+
+        final HashSet<Card> cardHashSet = new HashSet<>();
+        cardHashSet.add(new Card(CardCategory.ACE, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TWO, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.JACK, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.DIAMONDS));
+        final Hand fooHand = new Hand(cardHashSet);
+
+        Assert.assertTrue(containsThreeOfAKindExistenceValidator.threeOfAKindExists(fooHand));
+        Assert.assertFalse(doesNotContainThreeOfAKindExistenceValidator.threeOfAKindExists(fooHand));
     }
 
 }

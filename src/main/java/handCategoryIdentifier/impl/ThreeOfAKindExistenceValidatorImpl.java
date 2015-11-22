@@ -15,6 +15,8 @@ public class ThreeOfAKindExistenceValidatorImpl implements ThreeOfAKindExistence
 
     @Override
     public boolean threeOfAKindExists(final Hand hand) {
+        assert null != hand;
+
         return cardCategoryCountMapper.returnCardCategoryCountMap(hand).containsValue(3);
     }
 }
