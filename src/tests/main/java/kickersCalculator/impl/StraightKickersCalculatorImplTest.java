@@ -1,6 +1,7 @@
 package main.java.kickersCalculator.impl;
 
 import main.java.common.model.*;
+import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,7 +9,6 @@ import java.util.HashSet;
 import java.util.TreeSet;
 
 public class StraightKickersCalculatorImplTest {
-    private final StraightKickersCalculatorImpl straightKickersReturner = new StraightKickersCalculatorImpl();
     private final SortedCardCategoryReturner sortedCardCategoryReturner = new SortedCardCategoryReturner() {
         @Override
         public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
@@ -34,6 +34,8 @@ public class StraightKickersCalculatorImplTest {
         }
     };
 
+    private final StraightKickersCalculatorImpl sortedStraightKickersReturner = new StraightKickersCalculatorImpl(sortedCardCategoryReturner);
+    private final StraightKickersCalculatorImpl lowStraightKickersReturner = new StraightKickersCalculatorImpl(lowStraightCardCategoryReturner);
     @Test
     public void testExpected() throws Exception {
         final HashSet<Card> cards = new HashSet<>();
@@ -43,7 +45,7 @@ public class StraightKickersCalculatorImplTest {
         cards.add(new Card(CardCategory.JACK, Suit.SPADES));
         cards.add(new Card(CardCategory.NINE, Suit.SPADES));
         final Hand hand = new Hand(cards);
-        final StraightKickers straightKickers = straightKickersReturner.calculateKickers(hand, sortedCardCategoryReturner);
+        final StraightKickers straightKickers = sortedStraightKickersReturner.calculateKickers(hand);
         Assert.assertEquals(CardCategory.ACE, straightKickers.getHighestCardCategory());
     }
 
@@ -56,7 +58,7 @@ public class StraightKickersCalculatorImplTest {
         cards.add(new Card(CardCategory.JACK, Suit.SPADES));
         cards.add(new Card(CardCategory.NINE, Suit.SPADES));
         final Hand hand = new Hand(cards);
-        final StraightKickers straightKickers = straightKickersReturner.calculateKickers(hand, lowStraightCardCategoryReturner);
+        final StraightKickers straightKickers = lowStraightKickersReturner.calculateKickers(hand);
         Assert.assertEquals(CardCategory.FIVE, straightKickers.getHighestCardCategory());
     }
 
