@@ -10,6 +10,8 @@ public class TwoPairKickers {
             final CardCategory lowestPairCardCategory,
             final CardCategory remainingCardCategory
     ) {
+        assert highestPairCardCategory.getValue() > lowestPairCardCategory.getValue();
+
         this.highestPairCardCategory = highestPairCardCategory;
         this.lowestPairCardCategory = lowestPairCardCategory;
         this.remainingCardCategory = remainingCardCategory;
