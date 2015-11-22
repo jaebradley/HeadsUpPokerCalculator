@@ -33,35 +33,35 @@ public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
     public HandCategory identifyHandCategory(
             final Hand hand
     ) {
-        if (flushExistenceValidator.validateExistence(hand) && straightExistenceValidator.validateExistence(hand, sortedCardCategoryReturner)) {
+        if (flushExistenceValidator.flushExists(hand) && straightExistenceValidator.straightExists(hand)) {
             return HandCategory.StraightFlush;
         }
 
-        if (fourOfAKindExistenceValidator.validateExistence(hand, cardCategoryCountMapper)) {
+        if (fourOfAKindExistenceValidator.fourOfAKindExists(hand)) {
             return HandCategory.FourOfAKind;
         }
 
-        if (threeOfAKindExistenceValidator.validateExistence(hand, cardCategoryCountMapper) && onePairExistenceValidator.validateExistence(hand, cardCategoryPairCounter, cardCategoryCountMapper)) {
+        if (threeOfAKindExistenceValidator.threeOfAKindExists(hand) && onePairExistenceValidator.onePairExists(hand)) {
             return HandCategory.FullHouse;
         }
 
-        if (flushExistenceValidator.validateExistence(hand)) {
+        if (flushExistenceValidator.flushExists(hand)) {
             return HandCategory.Flush;
         }
 
-        if (straightExistenceValidator.validateExistence(hand, sortedCardCategoryReturner)) {
+        if (straightExistenceValidator.straightExists(hand)) {
             return HandCategory.Straight;
         }
 
-        if (threeOfAKindExistenceValidator.validateExistence(hand, cardCategoryCountMapper)) {
+        if (threeOfAKindExistenceValidator.threeOfAKindExists(hand)) {
             return HandCategory.ThreeOfAKind;
         }
 
-        if (twoPairExistenceValidator.validateExistence(hand, cardCategoryPairCounter, cardCategoryCountMapper)) {
+        if (twoPairExistenceValidator.twoPairExists(hand)) {
             return HandCategory.TwoPair;
         }
 
-        if (onePairExistenceValidator.validateExistence(hand, cardCategoryPairCounter, cardCategoryCountMapper)) {
+        if (onePairExistenceValidator.onePairExists(hand)) {
             return HandCategory.OnePair;
         }
 
