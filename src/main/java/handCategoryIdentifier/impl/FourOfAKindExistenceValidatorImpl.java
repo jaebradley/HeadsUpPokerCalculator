@@ -2,12 +2,19 @@ package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Hand;
 import main.java.common.utils.impl.CardCategoryCountMapperImpl;
+import main.java.common.utils.interfaces.CardCategoryCountMapper;
+import main.java.handCategoryIdentifier.interfaces.FourOfAKindExistenceValidator;
 import main.java.handCategoryIdentifier.interfaces.HandCategoryExistenceValidator;
 
-public class FourOfAKindExistenceValidatorImpl implements HandCategoryExistenceValidator {
+public class FourOfAKindExistenceValidatorImpl implements FourOfAKindExistenceValidator {
+    private final CardCategoryCountMapper cardCategoryCountMapper;
+
+    public FourOfAKindExistenceValidatorImpl(final CardCategoryCountMapper cardCategoryCountMapper) {
+        this.cardCategoryCountMapper = cardCategoryCountMapper;
+    }
 
     @Override
-    public boolean validateExistence(final Hand hand) {
-        return CardCategoryCountMapperImpl.returnCardCategoryCountMap(hand).containsValue(4);
+    public boolean fourOfAKindExists(final Hand hand) {
+        return cardCategoryCountMapper.returnCardCategoryCountMap(hand).containsValue(4);
     }
 }
