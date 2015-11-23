@@ -1,9 +1,6 @@
 package main.java.handCategoryIdentifier.impl;
 
-import main.java.common.model.CardCategory;
-import main.java.common.model.Hand;
-import main.java.common.model.HandCategory;
-import main.java.common.model.Suit;
+import main.java.common.model.*;
 import main.java.common.utils.interfaces.CardCategoryCountMapper;
 import main.java.common.utils.interfaces.CardCategoryPairCounter;
 import main.java.common.utils.interfaces.DistinctSuitsReturner;
@@ -151,18 +148,74 @@ public class HandCategoryIdentifierImplTest {
                 onePairExistenceValidator
         );
 
+        final HandCategoryIdentifierImpl handCategoryIdentifier2 = new HandCategoryIdentifierImpl(
+                flushExistenceValidator,
+                straightExistenceValidator,
+                fourOfAKindNonExistenceValidator,
+                threeOfAKindNonExistenceValidator,
+                twoPairNonExistenceValidator,
+                onePairNonExistenceValidator
+        );
+
+        final HashSet<Card> cardHashSet = new HashSet<>();
+        cardHashSet.add(new Card(CardCategory.ACE, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TWO, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.JACK, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.DIAMONDS));
+        final Hand fooHand = new Hand(cardHashSet);
+
         Assert.assertEquals(
                 HandCategory.StraightFlush,
                 handCategoryIdentifier1.identifyHandCategory(
-                        null
+                        fooHand
                 )
         );
 
         Assert.assertEquals(
                 HandCategory.StraightFlush,
-                handCategoryIdentifier1.identifyHandCategory(
-                        null
+                handCategoryIdentifier2.identifyHandCategory(
+                        fooHand
                 )
+        );
+    }
+
+    @Test
+    public void testFourOfAKind() {
+        final HandCategoryIdentifierImpl handCategoryIdentifier1 = new HandCategoryIdentifierImpl(
+                flushNonExistenceValidator,
+                straightNonExistenceValidator,
+                fourOfAKindExistenceValidator,
+                threeOfAKindExistenceValidator,
+                twoPairExistenceValidator,
+                onePairExistenceValidator
+        );
+
+        final HandCategoryIdentifierImpl handCategoryIdentifier2 = new HandCategoryIdentifierImpl(
+                flushNonExistenceValidator,
+                straightNonExistenceValidator,
+                fourOfAKindExistenceValidator,
+                threeOfAKindNonExistenceValidator,
+                twoPairNonExistenceValidator,
+                onePairNonExistenceValidator
+        );
+
+        final HashSet<Card> cardHashSet = new HashSet<>();
+        cardHashSet.add(new Card(CardCategory.ACE, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TWO, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.JACK, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.SPADES));
+        cardHashSet.add(new Card(CardCategory.TEN, Suit.DIAMONDS));
+        final Hand fooHand = new Hand(cardHashSet);
+
+        Assert.assertEquals(
+                HandCategory.FourOfAKind,
+                handCategoryIdentifier1.identifyHandCategory(fooHand)
+        );
+
+        Assert.assertEquals(
+                HandCategory.FourOfAKind,
+                handCategoryIdentifier2.identifyHandCategory(fooHand)
         );
     }
 

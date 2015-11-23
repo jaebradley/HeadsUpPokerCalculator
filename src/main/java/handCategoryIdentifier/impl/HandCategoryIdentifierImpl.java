@@ -33,6 +33,8 @@ public class HandCategoryIdentifierImpl implements HandCategoryIdentifier {
     public HandCategory identifyHandCategory(
             final Hand hand
     ) {
+        assert null != hand;
+
         if (flushExistenceValidator.flushExists(hand) && straightExistenceValidator.straightExists(hand)) {
             return HandCategory.StraightFlush;
         }
