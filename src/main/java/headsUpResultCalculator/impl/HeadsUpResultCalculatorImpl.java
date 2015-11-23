@@ -167,6 +167,10 @@ public class HeadsUpResultCalculatorImpl implements HeadsUpResultCalculator{
             }
         }
 
+        if (null == kickersComparisonResult) {
+            throw new RuntimeException("unexpected");
+        }
+
         switch (kickersComparisonResult) {
             case FIRST: {
                 return HeadsUpResult.DEALER_WINS;
