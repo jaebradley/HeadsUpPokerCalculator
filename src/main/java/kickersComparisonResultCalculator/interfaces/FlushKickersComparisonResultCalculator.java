@@ -4,7 +4,7 @@ import main.java.common.model.FlushKickers;
 import main.java.common.model.KickersComparisonResult;
 
 public interface FlushKickersComparisonResultCalculator {
-    KickersComparisonResult calculateKickersResult(
+    KickersComparisonResult calculateKickersComparisonResult(
             final FlushKickers flushKickers1,
             final FlushKickers flushKickers2
     );

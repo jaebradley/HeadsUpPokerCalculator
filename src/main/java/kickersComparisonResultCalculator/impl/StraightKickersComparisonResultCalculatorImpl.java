@@ -6,7 +6,7 @@ import main.java.kickersComparisonResultCalculator.interfaces.StraightKickersCom
 
 public class StraightKickersComparisonResultCalculatorImpl implements StraightKickersComparisonResultCalculator {
     @Override
-    public KickersComparisonResult calculateKickersResult(final StraightKickers straightKickers1, final StraightKickers straightKickers2) {
+    public KickersComparisonResult calculateKickersComparisonResult(final StraightKickers straightKickers1, final StraightKickers straightKickers2) {
         assert null != straightKickers1;
         assert null != straightKickers2;
 

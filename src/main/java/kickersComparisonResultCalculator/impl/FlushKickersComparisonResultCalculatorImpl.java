@@ -6,7 +6,7 @@ import main.java.kickersComparisonResultCalculator.interfaces.FlushKickersCompar
 
 public class FlushKickersComparisonResultCalculatorImpl implements FlushKickersComparisonResultCalculator {
     @Override
-    public KickersComparisonResult calculateKickersResult(final FlushKickers flushKickers1, final FlushKickers flushKickers2) {
+    public KickersComparisonResult calculateKickersComparisonResult(final FlushKickers flushKickers1, final FlushKickers flushKickers2) {
         if (flushKickers1.getHighestCardCategory().getValue() > flushKickers2.getHighestCardCategory().getValue()) {
             return KickersComparisonResult.FIRST;
         }
