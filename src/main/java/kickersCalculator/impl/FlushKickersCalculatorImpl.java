@@ -24,6 +24,8 @@ public class FlushKickersCalculatorImpl implements FlushKickersCalculator {
 
         final TreeSet<CardCategory> cardCategoriesSet = sortedCardCategoryReturner.returnCardCategoriesInAscendingOrder(hand);
 
+        assert null != cardCategoriesSet;
+
         if (5 != cardCategoriesSet.size()) {
             throw new HandDoesNotContainFiveDistinctCardCategoriesException();
         }

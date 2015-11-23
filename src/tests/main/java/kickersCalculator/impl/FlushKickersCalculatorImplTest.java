@@ -16,6 +16,19 @@ public class FlushKickersCalculatorImplTest {
     // Test null hand
     // Test 2, 3, 4 distinct card categories
     // Test flush hand and expected kickers
+    private final SortedCardCategoryReturner nullCardCategories = new SortedCardCategoryReturner() {
+        @Override
+        public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
+            return null;
+        }
+    };
+    private final SortedCardCategoryReturner emptyCardCategories = new SortedCardCategoryReturner() {
+        @Override
+        public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
+            final TreeSet<CardCategory> results = new TreeSet<>(new CardCategoryComparator());
+            return results;
+        }
+    };
 
     private final SortedCardCategoryReturner twoDistinctCardCategories = new SortedCardCategoryReturner() {
         @Override
@@ -59,6 +72,8 @@ public class FlushKickersCalculatorImplTest {
             return results;
         }
     };
+    private final FlushKickersCalculatorImpl nullCardCategoriesFlushKickersCalculator = new FlushKickersCalculatorImpl(nullCardCategories);
+    private final FlushKickersCalculatorImpl emptyCardCategoriesFlushKickersCalculator = new FlushKickersCalculatorImpl(emptyCardCategories);
     private final FlushKickersCalculatorImpl twoDistinctCardCategoriesFlushKickersCalculator = new FlushKickersCalculatorImpl(twoDistinctCardCategories);
     private final FlushKickersCalculatorImpl threeDistinctCardCategoriesFlushKickersCalculator = new FlushKickersCalculatorImpl(threeDistinctCardCategories);
     private final FlushKickersCalculatorImpl fourDistinctCardCategoriesFlushKickersCalculator = new FlushKickersCalculatorImpl(fourDistinctCardCategories);
@@ -66,6 +81,20 @@ public class FlushKickersCalculatorImplTest {
 
     @Test
     public void testNull() throws HandDoesNotContainFiveDistinctCardCategoriesException {
+        try {
+            nullCardCategoriesFlushKickersCalculator.calculateKickers(null);
+            Assert.fail();
+        } catch (AssertionError e) {
+            // expected
+        }
+
+        try {
+            emptyCardCategoriesFlushKickersCalculator.calculateKickers(null);
+            Assert.fail();
+        } catch (AssertionError e) {
+            // expected
+        }
+
         try {
             twoDistinctCardCategoriesFlushKickersCalculator.calculateKickers(null);
             Assert.fail();
@@ -104,6 +133,20 @@ public class FlushKickersCalculatorImplTest {
         cardHashSet.add(new Card(CardCategory.TEN, Suit.SPADES));
         cardHashSet.add(new Card(CardCategory.TEN, Suit.DIAMONDS));
         final Hand fooHand = new Hand(cardHashSet);
+
+        try {
+            nullCardCategoriesFlushKickersCalculator.calculateKickers(fooHand);
+            Assert.fail();
+        } catch (AssertionError e) {
+            // expected
+        }
+
+        try {
+            emptyCardCategoriesFlushKickersCalculator.calculateKickers(fooHand);
+            Assert.fail();
+        } catch (HandDoesNotContainFiveDistinctCardCategoriesException e) {
+            // expected
+        }
         try {
             twoDistinctCardCategoriesFlushKickersCalculator.calculateKickers(fooHand);
             Assert.fail();
