@@ -5,7 +5,7 @@ import main.java.common.model.kickers.StraightKickers;
 
 public interface StraightKickersComparisonResultCalculator {
     KickersComparisonResult calculateKickersComparisonResult(
-            final StraightKickers straightKickers1,
-            final StraightKickers straightKickers2
+            final StraightKickers dealerStraightKickers,
+            final StraightKickers bigBlindStraightKickers
     );
 }

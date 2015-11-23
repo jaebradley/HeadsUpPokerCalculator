@@ -172,11 +172,11 @@ public class HeadsUpResultCalculatorImpl implements HeadsUpResultCalculator{
         }
 
         switch (kickersComparisonResult) {
-            case FIRST: {
+            case DEALER_WINS: {
                 return HeadsUpResult.DEALER_WINS;
             }
 
-            case SECOND: {
+            case BIG_BLIND_WINS: {
                 return HeadsUpResult.BIG_BLIND_WINS;
             }
 

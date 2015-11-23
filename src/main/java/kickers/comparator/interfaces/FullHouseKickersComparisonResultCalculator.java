@@ -5,7 +5,7 @@ import main.java.common.model.kickers.FullHouseKickers;
 
 public interface FullHouseKickersComparisonResultCalculator {
     KickersComparisonResult calculateKickersComparisonResult(
-            final FullHouseKickers fullHouseKickers1,
-            final FullHouseKickers fullHouseKickers2
+            final FullHouseKickers dealerFullHouseKickers,
+            final FullHouseKickers bigBlindFullHouseKickers
     );
 }

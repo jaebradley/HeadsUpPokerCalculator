@@ -7,30 +7,30 @@ import main.java.kickers.comparator.interfaces.FullHouseKickersComparisonResultC
 public class FullHouseKickersComparisonResultCalculatorImpl implements FullHouseKickersComparisonResultCalculator {
     @Override
     public KickersComparisonResult calculateKickersComparisonResult(
-            final FullHouseKickers fullHouseKickers1,
-            final FullHouseKickers fullHouseKickers2
+            final FullHouseKickers dealerFullHouseKickers,
+            final FullHouseKickers bigBlindFullHouseKickers
     ) {
-        assert null != fullHouseKickers1;
-        assert null != fullHouseKickers2;
+        assert null != dealerFullHouseKickers;
+        assert null != bigBlindFullHouseKickers;
 
-        if (fullHouseKickers1.getThreeOfAKindCardCategory().getValue() > fullHouseKickers2.getThreeOfAKindCardCategory().getValue()) {
-            return KickersComparisonResult.FIRST;
+        if (dealerFullHouseKickers.getThreeOfAKindCardCategory().getValue() > bigBlindFullHouseKickers.getThreeOfAKindCardCategory().getValue()) {
+            return KickersComparisonResult.DEALER_WINS;
         }
 
-        if (fullHouseKickers2.getThreeOfAKindCardCategory().getValue() > fullHouseKickers1.getThreeOfAKindCardCategory().getValue()) {
-            return KickersComparisonResult.SECOND;
+        if (bigBlindFullHouseKickers.getThreeOfAKindCardCategory().getValue() > dealerFullHouseKickers.getThreeOfAKindCardCategory().getValue()) {
+            return KickersComparisonResult.BIG_BLIND_WINS;
         }
 
-        if (fullHouseKickers1.getThreeOfAKindCardCategory().getValue() == fullHouseKickers1.getThreeOfAKindCardCategory().getValue()) {
-            if (fullHouseKickers1.getTwoOfAKindCardCategory().getValue() > fullHouseKickers2.getTwoOfAKindCardCategory().getValue()) {
-                return KickersComparisonResult.FIRST;
+        if (dealerFullHouseKickers.getThreeOfAKindCardCategory().getValue() == dealerFullHouseKickers.getThreeOfAKindCardCategory().getValue()) {
+            if (dealerFullHouseKickers.getTwoOfAKindCardCategory().getValue() > bigBlindFullHouseKickers.getTwoOfAKindCardCategory().getValue()) {
+                return KickersComparisonResult.DEALER_WINS;
             }
 
-            if (fullHouseKickers2.getTwoOfAKindCardCategory().getValue() > fullHouseKickers1.getTwoOfAKindCardCategory().getValue()) {
-                return KickersComparisonResult.SECOND;
+            if (bigBlindFullHouseKickers.getTwoOfAKindCardCategory().getValue() > dealerFullHouseKickers.getTwoOfAKindCardCategory().getValue()) {
+                return KickersComparisonResult.BIG_BLIND_WINS;
             }
 
-            if (fullHouseKickers1.getTwoOfAKindCardCategory().getValue() == fullHouseKickers2.getTwoOfAKindCardCategory().getValue()) {
+            if (dealerFullHouseKickers.getTwoOfAKindCardCategory().getValue() == bigBlindFullHouseKickers.getTwoOfAKindCardCategory().getValue()) {
                 return KickersComparisonResult.TIE;
             }
         }

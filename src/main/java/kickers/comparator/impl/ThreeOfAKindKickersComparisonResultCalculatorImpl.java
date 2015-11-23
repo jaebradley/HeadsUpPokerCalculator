@@ -7,39 +7,39 @@ import main.java.kickers.comparator.interfaces.ThreeOfAKindKickersComparisonResu
 public class ThreeOfAKindKickersComparisonResultCalculatorImpl implements ThreeOfAKindKickersComparisonResultCalculator {
     @Override
     public KickersComparisonResult calculateKickersComparisonResult(
-            final ThreeOfAKindKickers threeOfAKindKickers1,
-            final ThreeOfAKindKickers threeOfAKindKickers2
+            final ThreeOfAKindKickers dealerThreeOfAKindKickers,
+            final ThreeOfAKindKickers bigBlindThreeOfAKindKickers
     ) {
-        assert null != threeOfAKindKickers1;
-        assert null != threeOfAKindKickers2;
+        assert null != dealerThreeOfAKindKickers;
+        assert null != bigBlindThreeOfAKindKickers;
 
-        if (threeOfAKindKickers1.getThreeOfAKindCardCategory().getValue() > threeOfAKindKickers2.getThreeOfAKindCardCategory().getValue()) {
-            return KickersComparisonResult.FIRST;
+        if (dealerThreeOfAKindKickers.getThreeOfAKindCardCategory().getValue() > bigBlindThreeOfAKindKickers.getThreeOfAKindCardCategory().getValue()) {
+            return KickersComparisonResult.DEALER_WINS;
         }
 
-        if (threeOfAKindKickers2.getThreeOfAKindCardCategory().getValue() > threeOfAKindKickers1.getThreeOfAKindCardCategory().getValue()) {
-            return KickersComparisonResult.SECOND;
+        if (bigBlindThreeOfAKindKickers.getThreeOfAKindCardCategory().getValue() > dealerThreeOfAKindKickers.getThreeOfAKindCardCategory().getValue()) {
+            return KickersComparisonResult.BIG_BLIND_WINS;
         }
 
-        if (threeOfAKindKickers1.getThreeOfAKindCardCategory().getValue() == threeOfAKindKickers2.getThreeOfAKindCardCategory().getValue()) {
-            if (threeOfAKindKickers1.getHighestRemainingCardCategory().getValue() > threeOfAKindKickers2.getHighestRemainingCardCategory().getValue()) {
-                return KickersComparisonResult.FIRST;
+        if (dealerThreeOfAKindKickers.getThreeOfAKindCardCategory().getValue() == bigBlindThreeOfAKindKickers.getThreeOfAKindCardCategory().getValue()) {
+            if (dealerThreeOfAKindKickers.getHighestRemainingCardCategory().getValue() > bigBlindThreeOfAKindKickers.getHighestRemainingCardCategory().getValue()) {
+                return KickersComparisonResult.DEALER_WINS;
             }
 
-            if (threeOfAKindKickers2.getHighestRemainingCardCategory().getValue() > threeOfAKindKickers1.getHighestRemainingCardCategory().getValue()) {
-                return KickersComparisonResult.SECOND;
+            if (bigBlindThreeOfAKindKickers.getHighestRemainingCardCategory().getValue() > dealerThreeOfAKindKickers.getHighestRemainingCardCategory().getValue()) {
+                return KickersComparisonResult.BIG_BLIND_WINS;
             }
 
-            if (threeOfAKindKickers1.getHighestRemainingCardCategory().getValue() == threeOfAKindKickers2.getHighestRemainingCardCategory().getValue()) {
-                if (threeOfAKindKickers1.getLowestRemainingCardCategory().getValue() > threeOfAKindKickers2.getLowestRemainingCardCategory().getValue()) {
-                    return KickersComparisonResult.FIRST;
+            if (dealerThreeOfAKindKickers.getHighestRemainingCardCategory().getValue() == bigBlindThreeOfAKindKickers.getHighestRemainingCardCategory().getValue()) {
+                if (dealerThreeOfAKindKickers.getLowestRemainingCardCategory().getValue() > bigBlindThreeOfAKindKickers.getLowestRemainingCardCategory().getValue()) {
+                    return KickersComparisonResult.DEALER_WINS;
                 }
 
-                if (threeOfAKindKickers2.getLowestRemainingCardCategory().getValue() > threeOfAKindKickers1.getLowestRemainingCardCategory().getValue()) {
-                    return KickersComparisonResult.SECOND;
+                if (bigBlindThreeOfAKindKickers.getLowestRemainingCardCategory().getValue() > dealerThreeOfAKindKickers.getLowestRemainingCardCategory().getValue()) {
+                    return KickersComparisonResult.BIG_BLIND_WINS;
                 }
 
-                if (threeOfAKindKickers1.getLowestRemainingCardCategory().getValue() == threeOfAKindKickers2.getLowestRemainingCardCategory().getValue()) {
+                if (dealerThreeOfAKindKickers.getLowestRemainingCardCategory().getValue() == bigBlindThreeOfAKindKickers.getLowestRemainingCardCategory().getValue()) {
                     return KickersComparisonResult.TIE;
                 }
             }

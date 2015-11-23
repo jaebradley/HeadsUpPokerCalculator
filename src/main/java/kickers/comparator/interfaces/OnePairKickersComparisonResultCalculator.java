@@ -5,7 +5,7 @@ import main.java.common.model.kickers.OnePairKickers;
 
 public interface OnePairKickersComparisonResultCalculator {
     KickersComparisonResult calculateKickersComparisonResult(
-            final OnePairKickers onePairKickers1,
-            final OnePairKickers onePairKickers2
+            final OnePairKickers dealerOnePairKickers,
+            final OnePairKickers bigBlindOnePairKickers
     );
 }

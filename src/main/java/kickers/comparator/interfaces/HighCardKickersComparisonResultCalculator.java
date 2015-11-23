@@ -5,7 +5,7 @@ import main.java.common.model.kickers.HighCardKickers;
 
 public interface HighCardKickersComparisonResultCalculator {
     KickersComparisonResult calculateKickersComparisonResult(
-            final HighCardKickers highCardKickers1,
-            final HighCardKickers highCardKickers2
+            final HighCardKickers dealerHighCardKickers,
+            final HighCardKickers bigBlindHighCardKickers
     );
 }

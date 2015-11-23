@@ -6,19 +6,19 @@ import main.java.kickers.comparator.interfaces.StraightKickersComparisonResultCa
 
 public class StraightKickersComparisonResultCalculatorImpl implements StraightKickersComparisonResultCalculator {
     @Override
-    public KickersComparisonResult calculateKickersComparisonResult(final StraightKickers straightKickers1, final StraightKickers straightKickers2) {
-        assert null != straightKickers1;
-        assert null != straightKickers2;
+    public KickersComparisonResult calculateKickersComparisonResult(final StraightKickers dealerStraightKickers, final StraightKickers bigBlindStraightKickers) {
+        assert null != dealerStraightKickers;
+        assert null != bigBlindStraightKickers;
 
-        if (straightKickers1.getHighestCardCategory().getValue() > straightKickers2.getHighestCardCategory().getValue()) {
-            return KickersComparisonResult.FIRST;
+        if (dealerStraightKickers.getHighestCardCategory().getValue() > bigBlindStraightKickers.getHighestCardCategory().getValue()) {
+            return KickersComparisonResult.DEALER_WINS;
         }
 
-        if (straightKickers2.getHighestCardCategory().getValue() > straightKickers1.getHighestCardCategory().getValue()) {
-            return KickersComparisonResult.SECOND;
+        if (bigBlindStraightKickers.getHighestCardCategory().getValue() > dealerStraightKickers.getHighestCardCategory().getValue()) {
+            return KickersComparisonResult.BIG_BLIND_WINS;
         }
 
-        if (straightKickers1.getHighestCardCategory().getValue() == straightKickers2.getHighestCardCategory().getValue()) {
+        if (dealerStraightKickers.getHighestCardCategory().getValue() == bigBlindStraightKickers.getHighestCardCategory().getValue()) {
             return KickersComparisonResult.TIE;
         }
 

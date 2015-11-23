@@ -34,8 +34,8 @@ public class FourOfAKindKickersComparisonResultCalculatorImplTest {
         final FourOfAKindKickers fourOfAKindKickers1 = new FourOfAKindKickers(CardCategory.QUEEN, CardCategory.TWO);
         final FourOfAKindKickers fourOfAKindKickers2 = new FourOfAKindKickers(CardCategory.JACK, CardCategory.TEN);
         final FourOfAKindKickers fourOfAKindKickers3 = new FourOfAKindKickers(CardCategory.KING, CardCategory.TEN);
-        Assert.assertEquals(fourOfAKindKicersComparisonResultCalculator.calculateKickersComparisonResult(fourOfAKindKickers1, fourOfAKindKickers2), KickersComparisonResult.FIRST);
-        Assert.assertEquals(fourOfAKindKicersComparisonResultCalculator.calculateKickersComparisonResult(fourOfAKindKickers1, fourOfAKindKickers3), KickersComparisonResult.SECOND);
+        Assert.assertEquals(fourOfAKindKicersComparisonResultCalculator.calculateKickersComparisonResult(fourOfAKindKickers1, fourOfAKindKickers2), KickersComparisonResult.DEALER_WINS);
+        Assert.assertEquals(fourOfAKindKicersComparisonResultCalculator.calculateKickersComparisonResult(fourOfAKindKickers1, fourOfAKindKickers3), KickersComparisonResult.BIG_BLIND_WINS);
     }
 
     @Test
@@ -43,8 +43,8 @@ public class FourOfAKindKickersComparisonResultCalculatorImplTest {
         final FourOfAKindKickers fourOfAKindKickers1 = new FourOfAKindKickers(CardCategory.JACK, CardCategory.ACE);
         final FourOfAKindKickers fourOfAKindKickers2 = new FourOfAKindKickers(CardCategory.JACK, CardCategory.TEN);
         final FourOfAKindKickers fourOfAKindKickers3 = new FourOfAKindKickers(CardCategory.JACK, CardCategory.ACE);
-        Assert.assertEquals(fourOfAKindKicersComparisonResultCalculator.calculateKickersComparisonResult(fourOfAKindKickers1, fourOfAKindKickers2), KickersComparisonResult.FIRST);
-        Assert.assertEquals(fourOfAKindKicersComparisonResultCalculator.calculateKickersComparisonResult(fourOfAKindKickers2, fourOfAKindKickers1), KickersComparisonResult.SECOND);
+        Assert.assertEquals(fourOfAKindKicersComparisonResultCalculator.calculateKickersComparisonResult(fourOfAKindKickers1, fourOfAKindKickers2), KickersComparisonResult.DEALER_WINS);
+        Assert.assertEquals(fourOfAKindKicersComparisonResultCalculator.calculateKickersComparisonResult(fourOfAKindKickers2, fourOfAKindKickers1), KickersComparisonResult.BIG_BLIND_WINS);
         Assert.assertEquals(fourOfAKindKicersComparisonResultCalculator.calculateKickersComparisonResult(fourOfAKindKickers1, fourOfAKindKickers3), KickersComparisonResult.TIE);
     }
 

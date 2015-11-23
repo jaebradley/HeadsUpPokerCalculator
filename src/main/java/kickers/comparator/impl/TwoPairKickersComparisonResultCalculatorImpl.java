@@ -7,36 +7,36 @@ import main.java.kickers.comparator.interfaces.TwoPairKickersComparisonResultCal
 public class TwoPairKickersComparisonResultCalculatorImpl implements TwoPairKickersComparisonResultCalculator {
     @Override
     public KickersComparisonResult calculateKickersComparisonResult(
-            final TwoPairKickers twoPairKickers1,
-            final TwoPairKickers twoPairKickers2
+            final TwoPairKickers dealerTwoPairKickers,
+            final TwoPairKickers bigBlindTwoPairKickers
     ) {
-        if (twoPairKickers1.getHighestPairCardCategory().getValue() > twoPairKickers2.getHighestPairCardCategory().getValue()) {
-            return KickersComparisonResult.FIRST;
+        if (dealerTwoPairKickers.getHighestPairCardCategory().getValue() > bigBlindTwoPairKickers.getHighestPairCardCategory().getValue()) {
+            return KickersComparisonResult.DEALER_WINS;
         }
 
-        if (twoPairKickers2.getHighestPairCardCategory().getValue() > twoPairKickers1.getHighestPairCardCategory().getValue()) {
-            return KickersComparisonResult.SECOND;
+        if (bigBlindTwoPairKickers.getHighestPairCardCategory().getValue() > dealerTwoPairKickers.getHighestPairCardCategory().getValue()) {
+            return KickersComparisonResult.BIG_BLIND_WINS;
         }
 
-        if (twoPairKickers1.getHighestPairCardCategory().getValue() == twoPairKickers1.getHighestPairCardCategory().getValue()) {
-            if (twoPairKickers1.getLowestPairCardCategory().getValue() > twoPairKickers2.getLowestPairCardCategory().getValue()) {
-                return KickersComparisonResult.FIRST;
+        if (dealerTwoPairKickers.getHighestPairCardCategory().getValue() == dealerTwoPairKickers.getHighestPairCardCategory().getValue()) {
+            if (dealerTwoPairKickers.getLowestPairCardCategory().getValue() > bigBlindTwoPairKickers.getLowestPairCardCategory().getValue()) {
+                return KickersComparisonResult.DEALER_WINS;
             }
 
-            if (twoPairKickers2.getLowestPairCardCategory().getValue() > twoPairKickers1.getLowestPairCardCategory().getValue()) {
-                return KickersComparisonResult.SECOND;
+            if (bigBlindTwoPairKickers.getLowestPairCardCategory().getValue() > dealerTwoPairKickers.getLowestPairCardCategory().getValue()) {
+                return KickersComparisonResult.BIG_BLIND_WINS;
             }
 
-            if (twoPairKickers1.getLowestPairCardCategory().getValue() == twoPairKickers2.getLowestPairCardCategory().getValue()) {
-                if (twoPairKickers1.getRemainingCardCategory().getValue() > twoPairKickers2.getRemainingCardCategory().getValue()) {
-                    return KickersComparisonResult.FIRST;
+            if (dealerTwoPairKickers.getLowestPairCardCategory().getValue() == bigBlindTwoPairKickers.getLowestPairCardCategory().getValue()) {
+                if (dealerTwoPairKickers.getRemainingCardCategory().getValue() > bigBlindTwoPairKickers.getRemainingCardCategory().getValue()) {
+                    return KickersComparisonResult.DEALER_WINS;
                 }
 
-                if (twoPairKickers2.getRemainingCardCategory().getValue() > twoPairKickers1.getRemainingCardCategory().getValue()) {
-                    return KickersComparisonResult.SECOND;
+                if (bigBlindTwoPairKickers.getRemainingCardCategory().getValue() > dealerTwoPairKickers.getRemainingCardCategory().getValue()) {
+                    return KickersComparisonResult.BIG_BLIND_WINS;
                 }
 
-                if (twoPairKickers1.getRemainingCardCategory().getValue() == twoPairKickers2.getRemainingCardCategory().getValue()) {
+                if (dealerTwoPairKickers.getRemainingCardCategory().getValue() == bigBlindTwoPairKickers.getRemainingCardCategory().getValue()) {
                     return KickersComparisonResult.TIE;
                 }
             }
