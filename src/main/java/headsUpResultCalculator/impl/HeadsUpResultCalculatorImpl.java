@@ -19,6 +19,8 @@ public class HeadsUpResultCalculatorImpl implements HeadsUpResultCalculator{
     private final ThreeOfAKindKickersCalculator threeOfAKindKickersCalculator;
     private final TwoPairKickersCalculator twoPairKickersCalculator;
     private final OnePairKickersCalculator onePairKickersCalculator;
+    private final FlushKickersComparisonResultCalculator flushKickersComparisonResultCalculator;
+    private final StraightKickersComparisonResultCalculator straightKickersComparisonResultCalculator;
     private final FourOfAKindKickersComparisonResultCalculator fourOfAKindKickersComparisonResultCalculator;
     private final FullHouseKickersComparisonResultCalculator fullHouseKickersComparisonResultCalculator;
     private final ThreeOfAKindKickersComparisonResultCalculator threeOfAKindKickersComparisonResultCalculator;
@@ -37,6 +39,8 @@ public class HeadsUpResultCalculatorImpl implements HeadsUpResultCalculator{
             final ThreeOfAKindKickersCalculator threeOfAKindKickersCalculator,
             final TwoPairKickersCalculator twoPairKickersCalculator,
             final OnePairKickersCalculator onePairKickersCalculator,
+            final FlushKickersComparisonResultCalculator flushKickersComparisonResultCalculator,
+            final StraightKickersComparisonResultCalculator straightKickersComparisonResultCalculator,
             final FourOfAKindKickersComparisonResultCalculator fourOfAKindKickersComparisonResultCalculator,
             final FullHouseKickersComparisonResultCalculator fullHouseKickersComparisonResultCalculator,
             final ThreeOfAKindKickersComparisonResultCalculator threeOfAKindKickersComparisonResultCalculator,
@@ -52,6 +56,8 @@ public class HeadsUpResultCalculatorImpl implements HeadsUpResultCalculator{
         this.threeOfAKindKickersCalculator = threeOfAKindKickersCalculator;
         this.twoPairKickersCalculator = twoPairKickersCalculator;
         this.onePairKickersCalculator = onePairKickersCalculator;
+        this.flushKickersComparisonResultCalculator = flushKickersComparisonResultCalculator;
+        this.straightKickersComparisonResultCalculator = straightKickersComparisonResultCalculator;
         this.fourOfAKindKickersComparisonResultCalculator = fourOfAKindKickersComparisonResultCalculator;
         this.fullHouseKickersComparisonResultCalculator = fullHouseKickersComparisonResultCalculator;
         this.threeOfAKindKickersComparisonResultCalculator = threeOfAKindKickersComparisonResultCalculator;
