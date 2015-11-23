@@ -28,7 +28,7 @@ public class SortedCardCategoryMapperImplTest {
     }
 
     @Test
-    public void testHandsWithDifferentCardCategories() {
+    public void testHandsWithTwoDifferentCardCategories() {
 
         final HashSet<Card> twoDistinctCardCategoriesCards = new HashSet<>();
         twoDistinctCardCategoriesCards.add(new Card(CardCategory.ACE, Suit.CLUBS));
@@ -44,6 +44,12 @@ public class SortedCardCategoryMapperImplTest {
         Assert.assertTrue(twoDistinctCardCategoriesMap.containsKey(CardCategory.TWO));
         Assert.assertEquals(twoDistinctCardCategoriesMap.get(CardCategory.ACE), new Integer(4));
         Assert.assertEquals(twoDistinctCardCategoriesMap.get(CardCategory.TWO), new Integer(1));
+        Assert.assertEquals(twoDistinctCardCategoriesMap.firstKey(), CardCategory.TWO);
+        Assert.assertEquals(twoDistinctCardCategoriesMap.lastKey(), CardCategory.ACE);
+    }
+
+    @Test
+    public void testHandsWithThreeDifferentCardCategories() {
 
         final HashSet<Card> threeDistinctCardCategoriesCards = new HashSet<>();
         threeDistinctCardCategoriesCards.add(new Card(CardCategory.TEN, Suit.CLUBS));
@@ -61,6 +67,36 @@ public class SortedCardCategoryMapperImplTest {
         Assert.assertEquals(threeDistinctCardCategoriesMap.get(CardCategory.ACE), new Integer(3));
         Assert.assertEquals(threeDistinctCardCategoriesMap.get(CardCategory.TWO), new Integer(1));
         Assert.assertEquals(threeDistinctCardCategoriesMap.get(CardCategory.TEN), new Integer(1));
+
+        int counter = 0;
+        for (final CardCategory key : threeDistinctCardCategoriesMap.keySet()) {
+            switch (counter) {
+                case 0: {
+                    Assert.assertEquals(key, CardCategory.TWO);
+                    break;
+                }
+
+                case 1: {
+                    Assert.assertEquals(key, CardCategory.TEN);
+                    break;
+                }
+
+                case 2: {
+                    Assert.assertEquals(key, CardCategory.ACE);
+                    break;
+                }
+
+                default: {
+                    Assert.fail();
+                }
+            }
+
+            counter++;
+        }
+    }
+
+    @Test
+    public void testCardsWithFourDifferentCardCategories() {
 
         final HashSet<Card> fourDistinctCardCategoriesCards = new HashSet<>();
         fourDistinctCardCategoriesCards.add(new Card(CardCategory.TEN, Suit.CLUBS));
@@ -80,6 +116,41 @@ public class SortedCardCategoryMapperImplTest {
         Assert.assertEquals(fourDistinctCardCategoriesMap.get(CardCategory.TWO), new Integer(1));
         Assert.assertEquals(fourDistinctCardCategoriesMap.get(CardCategory.TEN), new Integer(1));
         Assert.assertEquals(fourDistinctCardCategoriesMap.get(CardCategory.THREE), new Integer(1));
+
+        int counter = 0;
+        for (final CardCategory key : fourDistinctCardCategoriesMap.keySet()) {
+            switch (counter) {
+                case 0: {
+                    Assert.assertEquals(key, CardCategory.TWO);
+                    break;
+                }
+
+                case 1: {
+                    Assert.assertEquals(key, CardCategory.THREE);
+                    break;
+                }
+
+                case 2: {
+                    Assert.assertEquals(key, CardCategory.TEN);
+                    break;
+                }
+
+                case 3: {
+                    Assert.assertEquals(key, CardCategory.ACE);
+                    break;
+                }
+
+                default: {
+                    Assert.fail();
+                }
+            }
+
+            counter++;
+        }
+    }
+
+    @Test
+    public void testCardsWithFiveDifferentCardCategories() {
 
         final HashSet<Card> fiveDistinctCardCategoriesCards = new HashSet<>();
         fiveDistinctCardCategoriesCards.add(new Card(CardCategory.TEN, Suit.CLUBS));
@@ -101,6 +172,42 @@ public class SortedCardCategoryMapperImplTest {
         Assert.assertEquals(fiveDistinctCardCategoriesMap.get(CardCategory.TEN), new Integer(1));
         Assert.assertEquals(fiveDistinctCardCategoriesMap.get(CardCategory.THREE), new Integer(1));
         Assert.assertEquals(fiveDistinctCardCategoriesMap.get(CardCategory.JACK), new Integer(1));
+        int counter = 0;
+        for (final CardCategory key : fiveDistinctCardCategoriesMap.keySet()) {
+            switch (counter) {
+                case 0: {
+                    Assert.assertEquals(key, CardCategory.TWO);
+                    break;
+                }
+
+                case 1: {
+                    Assert.assertEquals(key, CardCategory.THREE);
+                    break;
+                }
+
+                case 2: {
+                    Assert.assertEquals(key, CardCategory.TEN);
+                    break;
+                }
+
+                case 3: {
+                    Assert.assertEquals(key, CardCategory.JACK);
+                    break;
+                }
+
+                case 4: {
+                    Assert.assertEquals(key, CardCategory.ACE);
+                    break;
+                }
+
+                default: {
+                    Assert.fail();
+                }
+            }
+
+            counter++;
+        }
+
     }
 
 }

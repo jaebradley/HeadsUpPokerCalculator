@@ -9,6 +9,8 @@ import java.util.TreeSet;
 
 public final class SortedCardCategoryReturnerImpl implements SortedCardCategoryReturner {
     public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
+        assert null != hand;
+
         final TreeSet<CardCategory> sortedCardCategories = new TreeSet<>();
         for (final Card card : hand.getCards()) {
             sortedCardCategories.add(card.getCategory());
