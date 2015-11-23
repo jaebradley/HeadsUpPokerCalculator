@@ -13,6 +13,8 @@ public class OnePairExistenceValidatorImpl implements OnePairExistenceValidator 
 
     @Override
     public boolean onePairExists(final Hand hand) {
+        assert null != hand;
+
         return 1 == cardCategoryPairCounter.countCardCategoryPairs(hand);
     }
 }
