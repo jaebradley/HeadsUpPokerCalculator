@@ -20,6 +20,8 @@ public class FlushKickersCalculatorImpl implements FlushKickersCalculator {
     public FlushKickers calculateKickers(
             final Hand hand
     ) throws HandDoesNotContainFiveDistinctCardCategoriesException {
+        assert null != hand;
+
         final TreeSet<CardCategory> cardCategoriesSet = sortedCardCategoryReturner.returnCardCategoriesInAscendingOrder(hand);
 
         if (5 != cardCategoriesSet.size()) {
