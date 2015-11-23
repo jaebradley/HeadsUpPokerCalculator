@@ -32,6 +32,21 @@ public class FourOfAKindValidatorTest {
     private final FourOfAKindExistenceValidatorImpl containsFourCardsFourOfAKindValidator = new FourOfAKindExistenceValidatorImpl(containsFourCardsCategoryCountMapper);
     private final FourOfAKindExistenceValidatorImpl doesNotContainFourCardsFourOfAKindValidator = new FourOfAKindExistenceValidatorImpl(doesNotContainFourCardsCategoryCountMapper);
     @Test
+    public void testNull() {
+        try {
+            containsFourCardsFourOfAKindValidator.fourOfAKindExists(null);
+        } catch (AssertionError e) {
+            // expected
+        }
+
+        try {
+            doesNotContainFourCardsFourOfAKindValidator.fourOfAKindExists(null);
+        } catch (AssertionError e) {
+            // expected
+        }
+    }
+
+    @Test
     public void testExpected() {
         final HashSet<Card> cardHashSet = new HashSet<>();
         cardHashSet.add(new Card(CardCategory.ACE, Suit.SPADES));

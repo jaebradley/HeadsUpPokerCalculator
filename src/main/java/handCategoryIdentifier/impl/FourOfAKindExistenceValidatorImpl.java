@@ -13,6 +13,8 @@ public class FourOfAKindExistenceValidatorImpl implements FourOfAKindExistenceVa
 
     @Override
     public boolean fourOfAKindExists(final Hand hand) {
+        assert null != hand;
+
         return cardCategoryCountMapper.returnCardCategoryCountMap(hand).containsValue(4);
     }
 }
