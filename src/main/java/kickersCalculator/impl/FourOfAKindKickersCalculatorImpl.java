@@ -4,6 +4,9 @@ import main.java.common.model.CardCategory;
 import main.java.common.model.FourOfAKindKickers;
 import main.java.common.model.Hand;
 import main.java.common.utils.interfaces.CardCategoryCountMapper;
+import main.java.kickersCalculator.exceptions.HandDoesNotContainFourOfAKindException;
+import main.java.kickersCalculator.exceptions.HandDoesNotContainOneOfAKindException;
+import main.java.kickersCalculator.exceptions.HandDoesNotContainTwoDistinctCardCategoriesException;
 import main.java.kickersCalculator.interfaces.FourOfAKindKickersCalculator;
 
 import java.util.HashMap;
@@ -17,19 +20,55 @@ public class FourOfAKindKickersCalculatorImpl implements FourOfAKindKickersCalcu
     }
 
     @Override
-    public FourOfAKindKickers calculateKickers(final Hand hand) {
+    public FourOfAKindKickers calculateKickers(
+            final Hand hand
+    ) throws HandDoesNotContainFourOfAKindException,
+            HandDoesNotContainTwoDistinctCardCategoriesException,
+            HandDoesNotContainOneOfAKindException
+    {
+        assert null != hand;
+
         final HashMap<CardCategory, Integer> cardCategoryIntegerHashMap = cardCategoryCountMapper.returnCardCategoryCountMap(hand);
+
+        assert null != cardCategoryIntegerHashMap;
+
+        if (2 != cardCategoryIntegerHashMap.size()) {
+            throw new HandDoesNotContainTwoDistinctCardCategoriesException();
+        }
+
+        if (!cardCategoryIntegerHashMap.containsValue(4)) {
+            throw new HandDoesNotContainFourOfAKindException();
+        }
+
+        if (!cardCategoryIntegerHashMap.containsValue(1)) {
+            throw new HandDoesNotContainOneOfAKindException();
+        }
+
         CardCategory fourOfAKindCardCategory = null;
         CardCategory remainingCardCategory = null;
         for (final Map.Entry<CardCategory, Integer> entry : cardCategoryIntegerHashMap.entrySet()) {
-            if (4 == entry.getValue()) {
-                fourOfAKindCardCategory = entry.getKey();
-            }
 
-            if (1 == entry.getValue()) {
-                remainingCardCategory = entry.getKey();
+            switch(entry.getValue()) {
+                case 4: {
+                    fourOfAKindCardCategory = entry.getKey();
+                    break;
+                }
+
+                case 1: {
+                    remainingCardCategory = entry.getKey();
+                    break;
+                }
+
+                default: {
+                    throw new RuntimeException("unexpected");
+                }
             }
         }
+
+        if (null == fourOfAKindCardCategory || null == remainingCardCategory) {
+            throw new RuntimeException("unexpected");
+        }
+
         return new FourOfAKindKickers(
                 fourOfAKindCardCategory,
                 remainingCardCategory
