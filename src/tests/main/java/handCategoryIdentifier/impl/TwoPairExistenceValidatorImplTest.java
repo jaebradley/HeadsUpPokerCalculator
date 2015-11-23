@@ -32,7 +32,7 @@ public class TwoPairExistenceValidatorImplTest {
     private final TwoPairExistenceValidatorImpl zeroPairsTwoPairExistenceValidator = new TwoPairExistenceValidatorImpl(zeroPairCardCategoryPairCounter);
     private final TwoPairExistenceValidatorImpl onePairTwoPairExistenceValidator = new TwoPairExistenceValidatorImpl(onePairCardCategoryPairCounter);
     private final TwoPairExistenceValidatorImpl twoPairTwoPairExistenceValidator = new TwoPairExistenceValidatorImpl(twoPairCardCategoryPairCounter);
-    
+
     @Test
     public void testNull() {
         try {
