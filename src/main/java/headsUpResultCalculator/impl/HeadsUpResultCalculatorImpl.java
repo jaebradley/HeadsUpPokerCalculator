@@ -181,7 +181,7 @@ public class HeadsUpResultCalculatorImpl implements HeadsUpResultCalculator{
             }
 
             default: {
-                throw new RuntimeException("unexpected");he
+                throw new RuntimeException("unexpected");
             }
         }
     }
