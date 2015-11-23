@@ -2,7 +2,6 @@ package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
-import main.java.common.utils.impl.SortedCardCategoryReturnerImpl;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.handCategoryIdentifier.interfaces.StraightExistenceValidator;
 

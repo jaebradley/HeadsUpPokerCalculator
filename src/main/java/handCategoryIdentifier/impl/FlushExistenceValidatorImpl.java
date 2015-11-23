@@ -4,7 +4,6 @@ import main.java.common.model.Card;
 import main.java.common.model.Hand;
 import main.java.common.model.Suit;
 import main.java.handCategoryIdentifier.interfaces.FlushExistenceValidator;
-import main.java.handCategoryIdentifier.interfaces.HandCategoryExistenceValidator;
 
 import java.util.HashSet;
 import java.util.Iterator;

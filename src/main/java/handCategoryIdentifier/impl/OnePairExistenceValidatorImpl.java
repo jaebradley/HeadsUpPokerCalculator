@@ -1,9 +1,7 @@
 package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Hand;
-import main.java.common.utils.impl.CardCategoryPairCounterImpl;
 import main.java.common.utils.interfaces.CardCategoryPairCounter;
-import main.java.handCategoryIdentifier.interfaces.HandCategoryExistenceValidator;
 import main.java.handCategoryIdentifier.interfaces.OnePairExistenceValidator;
 
 public class OnePairExistenceValidatorImpl implements OnePairExistenceValidator {

@@ -1,6 +1,5 @@
 package main.java.kickersCalculator.models;
 
-import main.java.common.model.HighCardKickers;
 import main.java.kickersCalculator.interfaces.*;
 
 public class KickerCalculators {

@@ -1,10 +1,8 @@
 package main.java.handCategoryIdentifier.impl;
 
 import main.java.common.model.Hand;
-import main.java.common.utils.impl.CardCategoryCountMapperImpl;
 import main.java.common.utils.interfaces.CardCategoryCountMapper;
 import main.java.handCategoryIdentifier.interfaces.FourOfAKindExistenceValidator;
-import main.java.handCategoryIdentifier.interfaces.HandCategoryExistenceValidator;
 
 public class FourOfAKindExistenceValidatorImpl implements FourOfAKindExistenceValidator {
     private final CardCategoryCountMapper cardCategoryCountMapper;
