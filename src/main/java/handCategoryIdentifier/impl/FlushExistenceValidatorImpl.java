@@ -11,6 +11,8 @@ import java.util.Iterator;
 public final class FlushExistenceValidatorImpl implements FlushExistenceValidator {
     @Override
     public boolean flushExists(final Hand hand) {
+        assert null != hand;
+
         final HashSet<Card> cards = hand.getCards();
         final Iterator<Card> cardIterator = cards.iterator();
         final Suit firstCardSuit = cardIterator.next().getSuit();
