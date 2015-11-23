@@ -48,7 +48,7 @@ public class FourOfAKindKickersCalculatorImpl implements FourOfAKindKickersCalcu
         CardCategory remainingCardCategory = null;
         for (final Map.Entry<CardCategory, Integer> entry : cardCategoryIntegerHashMap.entrySet()) {
 
-            switch(entry.getValue()) {
+            switch (entry.getValue()) {
                 case 4: {
                     fourOfAKindCardCategory = entry.getKey();
                     break;
