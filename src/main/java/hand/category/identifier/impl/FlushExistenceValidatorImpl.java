@@ -5,7 +5,6 @@ import main.java.common.model.Hand;
 import main.java.common.model.Suit;
 import main.java.hand.category.identifier.interfaces.FlushExistenceValidator;
 
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
