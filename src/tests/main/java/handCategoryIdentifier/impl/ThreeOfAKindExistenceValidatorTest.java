@@ -32,7 +32,7 @@ public class ThreeOfAKindExistenceValidatorTest {
     private final ThreeOfAKindExistenceValidatorImpl doesNotContainThreeOfAKindExistenceValidator = new ThreeOfAKindExistenceValidatorImpl(doesNotContainThreeCards);
 
     @Test
-    public void testExpected() {
+    public void testNull() {
         try {
             containsThreeOfAKindExistenceValidator.threeOfAKindExists(null);
             Assert.fail();
@@ -46,7 +46,10 @@ public class ThreeOfAKindExistenceValidatorTest {
         } catch (AssertionError e) {
             // expected
         }
+    }
 
+    @Test
+    public void testExpected() {
         final HashSet<Card> cardHashSet = new HashSet<>();
         cardHashSet.add(new Card(CardCategory.ACE, Suit.SPADES));
         cardHashSet.add(new Card(CardCategory.TWO, Suit.SPADES));
