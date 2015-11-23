@@ -15,8 +15,18 @@ public final class CardCategoryPairCounterImpl implements CardCategoryPairCounte
     }
 
     public int countCardCategoryPairs(final Hand hand) {
+        assert null != hand;
+
         final HashMap<CardCategory, Integer> cardCategoryCountMap = cardCategoryCountMapper.returnCardCategoryCountMap(hand);
+
+        assert null != cardCategoryCountMap;
+
         int pairCount = 0;
+
+        if (!cardCategoryCountMap.containsValue(2)) {
+            return pairCount;
+        }
+
         for (final Integer value : cardCategoryCountMap.values()) {
             if (2 == value) {
                 pairCount++;
