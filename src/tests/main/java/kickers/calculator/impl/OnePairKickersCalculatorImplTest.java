@@ -1,6 +1,9 @@
 package main.java.kickers.calculator.impl;
 
-import main.java.common.model.*;
+import main.java.common.model.Card;
+import main.java.common.model.CardCategory;
+import main.java.common.model.Hand;
+import main.java.common.model.Suit;
 import main.java.common.model.kickers.OnePairKickers;
 import main.java.common.utils.interfaces.SortedCardCategoryMapper;
 import main.java.kickers.calculator.exceptions.HandDoesNotContainFourDistinctCardCategoriesException;

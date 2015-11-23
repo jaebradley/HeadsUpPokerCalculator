@@ -1,7 +1,7 @@
 package main.java.kickers.comparator.impl;
 
-import main.java.common.model.kickers.FullHouseKickers;
 import main.java.common.model.KickersComparisonResult;
+import main.java.common.model.kickers.FullHouseKickers;
 import main.java.kickers.comparator.interfaces.FullHouseKickersComparisonResultCalculator;
 
 public class FullHouseKickersComparisonResultCalculatorImpl implements FullHouseKickersComparisonResultCalculator {

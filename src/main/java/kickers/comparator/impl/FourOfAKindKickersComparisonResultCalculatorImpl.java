@@ -1,7 +1,7 @@
 package main.java.kickers.comparator.impl;
 
-import main.java.common.model.kickers.FourOfAKindKickers;
 import main.java.common.model.KickersComparisonResult;
+import main.java.common.model.kickers.FourOfAKindKickers;
 import main.java.kickers.comparator.interfaces.FourOfAKindKickersComparisonResultCalculator;
 
 public class FourOfAKindKickersComparisonResultCalculatorImpl implements FourOfAKindKickersComparisonResultCalculator {

@@ -7,13 +7,14 @@ import main.java.hand.category.identifier.interfaces.FlushExistenceValidator;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 public final class FlushExistenceValidatorImpl implements FlushExistenceValidator {
     @Override
     public boolean flushExists(final Hand hand) {
         assert null != hand;
 
-        final HashSet<Card> cards = hand.getCards();
+        final Set<Card> cards = hand.getCards();
         final Iterator<Card> cardIterator = cards.iterator();
         final Suit firstCardSuit = cardIterator.next().getSuit();
         cardIterator.remove();

@@ -6,9 +6,9 @@ import main.java.common.model.HeadsUpResult;
 import main.java.common.model.KickersComparisonResult;
 import main.java.hand.category.identifier.interfaces.HandCategoryIdentifier;
 import main.java.headsUp.calculator.interfaces.HeadsUpResultCalculator;
-import main.java.kickers.comparator.interfaces.*;
 import main.java.kickers.calculator.exceptions.*;
 import main.java.kickers.calculator.interfaces.*;
+import main.java.kickers.comparator.interfaces.*;
 
 public class HeadsUpResultCalculatorImpl implements HeadsUpResultCalculator{
     private final HandCategoryIdentifier handCategoryIdentifier;
