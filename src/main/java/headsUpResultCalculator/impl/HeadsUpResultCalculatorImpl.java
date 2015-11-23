@@ -71,7 +71,7 @@ public class HeadsUpResultCalculatorImpl implements HeadsUpResultCalculator{
     public HeadsUpResult calculateHeadsUpResult(
             final Hand dealerHand,
             final Hand bigBlindHand
-    ) throws HandDoesNotContainFiveDistinctCardCategoriesException, HandDoesNotContainTwoOfAKindException, HandDoesNotContainThreeOfAKindException, HandDoesNotContainThreeDistinctCardCategoriesException, HandDoesNotContainFourDistinctCardCategoriesException {
+    ) throws HandDoesNotContainFiveDistinctCardCategoriesException, HandDoesNotContainTwoOfAKindException, HandDoesNotContainThreeOfAKindException, HandDoesNotContainThreeDistinctCardCategoriesException, HandDoesNotContainFourDistinctCardCategoriesException, HandDoesNotContainTwoDistinctCardCategoriesException, HandDoesNotContainFourOfAKindException, HandDoesNotContainOneOfAKindException {
         assert null != dealerHand;
         assert null != bigBlindHand;
 
