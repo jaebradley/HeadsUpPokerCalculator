@@ -1,6 +1,6 @@
 package main.java.kickers.comparator.interfaces;
 
-import main.java.common.model.HighCardKickers;
+import main.java.common.model.kickers.HighCardKickers;
 import main.java.common.model.KickersComparisonResult;
 
 public interface HighCardKickersComparisonResultCalculator {

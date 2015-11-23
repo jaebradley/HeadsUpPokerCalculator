@@ -2,7 +2,7 @@ package main.java.kickers.calculator.impl;
 
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
-import main.java.common.model.HighCardKickers;
+import main.java.common.model.kickers.HighCardKickers;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.kickers.calculator.exceptions.HandDoesNotContainFiveDistinctCardCategoriesException;
 import main.java.kickers.calculator.interfaces.HighCardKickersCalculator;

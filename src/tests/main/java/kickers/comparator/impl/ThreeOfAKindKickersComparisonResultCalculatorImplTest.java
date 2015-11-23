@@ -2,7 +2,7 @@ package main.java.kickers.comparator.impl;
 
 import main.java.common.model.CardCategory;
 import main.java.common.model.KickersComparisonResult;
-import main.java.common.model.ThreeOfAKindKickers;
+import main.java.common.model.kickers.ThreeOfAKindKickers;
 import org.junit.Assert;
 import org.junit.Test;
 

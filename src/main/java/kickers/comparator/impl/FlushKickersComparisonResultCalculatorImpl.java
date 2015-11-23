@@ -1,6 +1,6 @@
 package main.java.kickers.comparator.impl;
 
-import main.java.common.model.FlushKickers;
+import main.java.common.model.kickers.FlushKickers;
 import main.java.common.model.KickersComparisonResult;
 import main.java.kickers.comparator.interfaces.FlushKickersComparisonResultCalculator;
 

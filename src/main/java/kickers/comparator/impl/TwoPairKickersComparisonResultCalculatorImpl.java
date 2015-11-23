@@ -1,7 +1,7 @@
 package main.java.kickers.comparator.impl;
 
 import main.java.common.model.KickersComparisonResult;
-import main.java.common.model.TwoPairKickers;
+import main.java.common.model.kickers.TwoPairKickers;
 import main.java.kickers.comparator.interfaces.TwoPairKickersComparisonResultCalculator;
 
 public class TwoPairKickersComparisonResultCalculatorImpl implements TwoPairKickersComparisonResultCalculator {

@@ -1,4 +1,6 @@
-package main.java.common.model;
+package main.java.common.model.comparators;
+
+import main.java.common.model.Card;
 
 import java.util.Comparator;
 

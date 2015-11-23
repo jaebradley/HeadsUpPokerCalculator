@@ -1,4 +1,6 @@
-package main.java.common.model;
+package main.java.common.model.kickers;
+
+import main.java.common.model.CardCategory;
 
 public class ThreeOfAKindKickers {
     private final CardCategory threeOfAKindCardCategory;

@@ -1,6 +1,6 @@
 package main.java.kickers.calculator.interfaces;
 
-import main.java.common.model.FlushKickers;
+import main.java.common.model.kickers.FlushKickers;
 import main.java.common.model.Hand;
 import main.java.kickers.calculator.exceptions.HandDoesNotContainFiveDistinctCardCategoriesException;
 
