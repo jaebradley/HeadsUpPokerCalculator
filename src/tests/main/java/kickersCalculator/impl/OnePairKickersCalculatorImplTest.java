@@ -68,6 +68,10 @@ public class OnePairKickersCalculatorImplTest {
     private final OnePairKickersCalculatorImpl fiveDistinctCardCategoriesKickersCalculator = new OnePairKickersCalculatorImpl(
             fiveDistinctCardCategoriesMapper
     );
+
+    private final OnePairKickersCalculatorImpl onePairKickersCalculator = new OnePairKickersCalculatorImpl(
+            onePairCardCategoriesMapper
+    );
     // Tests
     // Test 2, 3, 5 Distinct Card
     // Test Expected and get Values
@@ -112,7 +116,7 @@ public class OnePairKickersCalculatorImplTest {
         cardHashSet.add(new Card(CardCategory.TEN, Suit.DIAMONDS));
         final Hand fooHand = new Hand(cardHashSet);
 
-        final OnePairKickers onePairKickers = twoDistinctCardCategoriesKickersCalculator.calculateKickers(fooHand);
+        final OnePairKickers onePairKickers = onePairKickersCalculator.calculateKickers(fooHand);
         Assert.assertNotNull(onePairKickers);
         Assert.assertEquals(onePairKickers.getPairCardCategory(), CardCategory.FIVE);
         Assert.assertEquals(onePairKickers.getHighestRemainingCardCategory(), CardCategory.ACE);
