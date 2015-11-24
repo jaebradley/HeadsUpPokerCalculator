@@ -18,6 +18,9 @@ public enum CardCategory {
     KING(12),
     ACE(13);
 
+    /**
+     * These categories are ordered by rank where the rankValue attribute represents the relative rank of a category.
+     */
     private final int rankValue;
 
     CardCategory(final int rankValue) {
