@@ -10,15 +10,15 @@ public class StraightKickersComparisonResultCalculatorImpl implements StraightKi
         assert null != dealerStraightKickers;
         assert null != bigBlindStraightKickers;
 
-        if (dealerStraightKickers.getHighestCardCategory().getValue() > bigBlindStraightKickers.getHighestCardCategory().getValue()) {
+        if (dealerStraightKickers.getHighestCardCategory().getRankValue() > bigBlindStraightKickers.getHighestCardCategory().getRankValue()) {
             return KickersComparisonResult.DEALER_WINS;
         }
 
-        if (bigBlindStraightKickers.getHighestCardCategory().getValue() > dealerStraightKickers.getHighestCardCategory().getValue()) {
+        if (bigBlindStraightKickers.getHighestCardCategory().getRankValue() > dealerStraightKickers.getHighestCardCategory().getRankValue()) {
             return KickersComparisonResult.BIG_BLIND_WINS;
         }
 
-        if (dealerStraightKickers.getHighestCardCategory().getValue() == bigBlindStraightKickers.getHighestCardCategory().getValue()) {
+        if (dealerStraightKickers.getHighestCardCategory().getRankValue() == bigBlindStraightKickers.getHighestCardCategory().getRankValue()) {
             return KickersComparisonResult.TIE;
         }
 

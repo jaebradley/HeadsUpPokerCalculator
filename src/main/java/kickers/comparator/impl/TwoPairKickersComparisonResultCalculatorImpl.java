@@ -10,33 +10,33 @@ public class TwoPairKickersComparisonResultCalculatorImpl implements TwoPairKick
             final TwoPairKickers dealerTwoPairKickers,
             final TwoPairKickers bigBlindTwoPairKickers
     ) {
-        if (dealerTwoPairKickers.getHighestPairCardCategory().getValue() > bigBlindTwoPairKickers.getHighestPairCardCategory().getValue()) {
+        if (dealerTwoPairKickers.getHighestPairCardCategory().getRankValue() > bigBlindTwoPairKickers.getHighestPairCardCategory().getRankValue()) {
             return KickersComparisonResult.DEALER_WINS;
         }
 
-        if (bigBlindTwoPairKickers.getHighestPairCardCategory().getValue() > dealerTwoPairKickers.getHighestPairCardCategory().getValue()) {
+        if (bigBlindTwoPairKickers.getHighestPairCardCategory().getRankValue() > dealerTwoPairKickers.getHighestPairCardCategory().getRankValue()) {
             return KickersComparisonResult.BIG_BLIND_WINS;
         }
 
-        if (dealerTwoPairKickers.getHighestPairCardCategory().getValue() == dealerTwoPairKickers.getHighestPairCardCategory().getValue()) {
-            if (dealerTwoPairKickers.getLowestPairCardCategory().getValue() > bigBlindTwoPairKickers.getLowestPairCardCategory().getValue()) {
+        if (dealerTwoPairKickers.getHighestPairCardCategory().getRankValue() == dealerTwoPairKickers.getHighestPairCardCategory().getRankValue()) {
+            if (dealerTwoPairKickers.getLowestPairCardCategory().getRankValue() > bigBlindTwoPairKickers.getLowestPairCardCategory().getRankValue()) {
                 return KickersComparisonResult.DEALER_WINS;
             }
 
-            if (bigBlindTwoPairKickers.getLowestPairCardCategory().getValue() > dealerTwoPairKickers.getLowestPairCardCategory().getValue()) {
+            if (bigBlindTwoPairKickers.getLowestPairCardCategory().getRankValue() > dealerTwoPairKickers.getLowestPairCardCategory().getRankValue()) {
                 return KickersComparisonResult.BIG_BLIND_WINS;
             }
 
-            if (dealerTwoPairKickers.getLowestPairCardCategory().getValue() == bigBlindTwoPairKickers.getLowestPairCardCategory().getValue()) {
-                if (dealerTwoPairKickers.getRemainingCardCategory().getValue() > bigBlindTwoPairKickers.getRemainingCardCategory().getValue()) {
+            if (dealerTwoPairKickers.getLowestPairCardCategory().getRankValue() == bigBlindTwoPairKickers.getLowestPairCardCategory().getRankValue()) {
+                if (dealerTwoPairKickers.getRemainingCardCategory().getRankValue() > bigBlindTwoPairKickers.getRemainingCardCategory().getRankValue()) {
                     return KickersComparisonResult.DEALER_WINS;
                 }
 
-                if (bigBlindTwoPairKickers.getRemainingCardCategory().getValue() > dealerTwoPairKickers.getRemainingCardCategory().getValue()) {
+                if (bigBlindTwoPairKickers.getRemainingCardCategory().getRankValue() > dealerTwoPairKickers.getRemainingCardCategory().getRankValue()) {
                     return KickersComparisonResult.BIG_BLIND_WINS;
                 }
 
-                if (dealerTwoPairKickers.getRemainingCardCategory().getValue() == bigBlindTwoPairKickers.getRemainingCardCategory().getValue()) {
+                if (dealerTwoPairKickers.getRemainingCardCategory().getRankValue() == bigBlindTwoPairKickers.getRemainingCardCategory().getRankValue()) {
                     return KickersComparisonResult.TIE;
                 }
             }

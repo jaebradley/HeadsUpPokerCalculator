@@ -13,24 +13,24 @@ public class FourOfAKindKickersComparisonResultCalculatorImpl implements FourOfA
         assert null != dealerFourOfAKindKickers;
         assert null != bigBlindFourOfAKindKickers;
 
-        if (dealerFourOfAKindKickers.getFourOfAKindCardCategory().getValue() > bigBlindFourOfAKindKickers.getFourOfAKindCardCategory().getValue()) {
+        if (dealerFourOfAKindKickers.getFourOfAKindCardCategory().getRankValue() > bigBlindFourOfAKindKickers.getFourOfAKindCardCategory().getRankValue()) {
             return KickersComparisonResult.DEALER_WINS;
         }
 
-        if (bigBlindFourOfAKindKickers.getFourOfAKindCardCategory().getValue() > dealerFourOfAKindKickers.getFourOfAKindCardCategory().getValue()) {
+        if (bigBlindFourOfAKindKickers.getFourOfAKindCardCategory().getRankValue() > dealerFourOfAKindKickers.getFourOfAKindCardCategory().getRankValue()) {
             return KickersComparisonResult.BIG_BLIND_WINS;
         }
 
-        if (dealerFourOfAKindKickers.getFourOfAKindCardCategory().getValue() == bigBlindFourOfAKindKickers.getFourOfAKindCardCategory().getValue()) {
-            if (dealerFourOfAKindKickers.getRemainingCardCategory().getValue() > bigBlindFourOfAKindKickers.getRemainingCardCategory().getValue()) {
+        if (dealerFourOfAKindKickers.getFourOfAKindCardCategory().getRankValue() == bigBlindFourOfAKindKickers.getFourOfAKindCardCategory().getRankValue()) {
+            if (dealerFourOfAKindKickers.getRemainingCardCategory().getRankValue() > bigBlindFourOfAKindKickers.getRemainingCardCategory().getRankValue()) {
                 return KickersComparisonResult.DEALER_WINS;
             }
 
-            if (bigBlindFourOfAKindKickers.getRemainingCardCategory().getValue() > dealerFourOfAKindKickers.getRemainingCardCategory().getValue()) {
+            if (bigBlindFourOfAKindKickers.getRemainingCardCategory().getRankValue() > dealerFourOfAKindKickers.getRemainingCardCategory().getRankValue()) {
                 return KickersComparisonResult.BIG_BLIND_WINS;
             }
 
-            if (dealerFourOfAKindKickers.getRemainingCardCategory().getValue() == bigBlindFourOfAKindKickers.getRemainingCardCategory().getValue()) {
+            if (dealerFourOfAKindKickers.getRemainingCardCategory().getRankValue() == bigBlindFourOfAKindKickers.getRemainingCardCategory().getRankValue()) {
                 return KickersComparisonResult.TIE;
             }
         }

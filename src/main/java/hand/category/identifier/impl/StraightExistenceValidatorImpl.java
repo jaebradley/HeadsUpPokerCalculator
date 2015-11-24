@@ -31,7 +31,7 @@ public class StraightExistenceValidatorImpl implements StraightExistenceValidato
                                 cardCategories.contains(CardCategory.FIVE)
                         ) ||
                         (
-                                4 == cardCategories.last().getValue() - cardCategories.first().getValue()
+                                4 == cardCategories.last().getRankValue() - cardCategories.first().getRankValue()
                         )
                 );
     }

@@ -1,6 +1,9 @@
 package main.java.common.model;
 
 public enum CardCategory {
+    /**
+     * Represents the different categorical values that cards can obtain.
+     */
     TWO(1),
     THREE(2),
     FOUR(3),
@@ -15,13 +18,13 @@ public enum CardCategory {
     KING(12),
     ACE(13);
 
-    private final int value;
+    private final int rankValue;
 
-    CardCategory(final int value) {
-        this.value = value;
+    CardCategory(final int rankValue) {
+        this.rankValue = rankValue;
     }
 
-    public int getValue() {
-        return value;
+    public int getRankValue() {
+        return rankValue;
     }
 }

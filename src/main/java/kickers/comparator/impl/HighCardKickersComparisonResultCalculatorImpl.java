@@ -10,51 +10,51 @@ public class HighCardKickersComparisonResultCalculatorImpl implements HighCardKi
             final HighCardKickers dealerHighCardKickers,
             final HighCardKickers bigBlindHighCardKickers
     ) {
-        if (dealerHighCardKickers.getHighestCardCategory().getValue() > bigBlindHighCardKickers.getHighestCardCategory().getValue()) {
+        if (dealerHighCardKickers.getHighestCardCategory().getRankValue() > bigBlindHighCardKickers.getHighestCardCategory().getRankValue()) {
             return KickersComparisonResult.DEALER_WINS;
         }
 
-        if (bigBlindHighCardKickers.getHighestCardCategory().getValue() > dealerHighCardKickers.getHighestCardCategory().getValue()) {
+        if (bigBlindHighCardKickers.getHighestCardCategory().getRankValue() > dealerHighCardKickers.getHighestCardCategory().getRankValue()) {
             return KickersComparisonResult.BIG_BLIND_WINS;
         }
 
-        if (dealerHighCardKickers.getHighestCardCategory().getValue() == bigBlindHighCardKickers.getHighestCardCategory().getValue()) {
-            if (dealerHighCardKickers.getSecondHighestCardCategory().getValue() > bigBlindHighCardKickers.getSecondHighestCardCategory().getValue()) {
+        if (dealerHighCardKickers.getHighestCardCategory().getRankValue() == bigBlindHighCardKickers.getHighestCardCategory().getRankValue()) {
+            if (dealerHighCardKickers.getSecondHighestCardCategory().getRankValue() > bigBlindHighCardKickers.getSecondHighestCardCategory().getRankValue()) {
                 return KickersComparisonResult.DEALER_WINS;
             }
 
-            if (bigBlindHighCardKickers.getSecondHighestCardCategory().getValue() > dealerHighCardKickers.getSecondHighestCardCategory().getValue()) {
+            if (bigBlindHighCardKickers.getSecondHighestCardCategory().getRankValue() > dealerHighCardKickers.getSecondHighestCardCategory().getRankValue()) {
                 return KickersComparisonResult.BIG_BLIND_WINS;
             }
 
-            if (dealerHighCardKickers.getSecondHighestCardCategory().getValue() == bigBlindHighCardKickers.getSecondHighestCardCategory().getValue()) {
-                if (dealerHighCardKickers.getThirdHighestCardCategory().getValue() > bigBlindHighCardKickers.getThirdHighestCardCategory().getValue()) {
+            if (dealerHighCardKickers.getSecondHighestCardCategory().getRankValue() == bigBlindHighCardKickers.getSecondHighestCardCategory().getRankValue()) {
+                if (dealerHighCardKickers.getThirdHighestCardCategory().getRankValue() > bigBlindHighCardKickers.getThirdHighestCardCategory().getRankValue()) {
                     return KickersComparisonResult.DEALER_WINS;
                 }
 
-                if (bigBlindHighCardKickers.getThirdHighestCardCategory().getValue() > dealerHighCardKickers.getThirdHighestCardCategory().getValue()) {
+                if (bigBlindHighCardKickers.getThirdHighestCardCategory().getRankValue() > dealerHighCardKickers.getThirdHighestCardCategory().getRankValue()) {
                     return KickersComparisonResult.BIG_BLIND_WINS;
                 }
 
-                if (dealerHighCardKickers.getThirdHighestCardCategory().getValue() == bigBlindHighCardKickers.getThirdHighestCardCategory().getValue()) {
-                    if (dealerHighCardKickers.getFourthHighestCardCategory().getValue() > bigBlindHighCardKickers.getFourthHighestCardCategory().getValue()) {
+                if (dealerHighCardKickers.getThirdHighestCardCategory().getRankValue() == bigBlindHighCardKickers.getThirdHighestCardCategory().getRankValue()) {
+                    if (dealerHighCardKickers.getFourthHighestCardCategory().getRankValue() > bigBlindHighCardKickers.getFourthHighestCardCategory().getRankValue()) {
                         return KickersComparisonResult.DEALER_WINS;
                     }
 
-                    if (bigBlindHighCardKickers.getFourthHighestCardCategory().getValue() > dealerHighCardKickers.getFourthHighestCardCategory().getValue()) {
+                    if (bigBlindHighCardKickers.getFourthHighestCardCategory().getRankValue() > dealerHighCardKickers.getFourthHighestCardCategory().getRankValue()) {
                         return KickersComparisonResult.BIG_BLIND_WINS;
                     }
 
-                    if (dealerHighCardKickers.getFourthHighestCardCategory().getValue() == bigBlindHighCardKickers.getFourthHighestCardCategory().getValue()) {
-                        if (dealerHighCardKickers.getFifthHighestCardCategory().getValue() > bigBlindHighCardKickers.getFifthHighestCardCategory().getValue()) {
+                    if (dealerHighCardKickers.getFourthHighestCardCategory().getRankValue() == bigBlindHighCardKickers.getFourthHighestCardCategory().getRankValue()) {
+                        if (dealerHighCardKickers.getFifthHighestCardCategory().getRankValue() > bigBlindHighCardKickers.getFifthHighestCardCategory().getRankValue()) {
                             return KickersComparisonResult.DEALER_WINS;
                         }
 
-                        if (bigBlindHighCardKickers.getFifthHighestCardCategory().getValue() > dealerHighCardKickers.getFifthHighestCardCategory().getValue()) {
+                        if (bigBlindHighCardKickers.getFifthHighestCardCategory().getRankValue() > dealerHighCardKickers.getFifthHighestCardCategory().getRankValue()) {
                             return KickersComparisonResult.BIG_BLIND_WINS;
                         }
 
-                        if (dealerHighCardKickers.getFifthHighestCardCategory().getValue() == bigBlindHighCardKickers.getFifthHighestCardCategory().getValue()) {
+                        if (dealerHighCardKickers.getFifthHighestCardCategory().getRankValue() == bigBlindHighCardKickers.getFifthHighestCardCategory().getRankValue()) {
                             return KickersComparisonResult.TIE;
                         }
                     }
