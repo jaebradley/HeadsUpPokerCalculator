@@ -1,4 +1,4 @@
-package main.java.common.model.comparators;
+package main.java.common.comparators;
 
 import main.java.common.model.CardCategory;
 
