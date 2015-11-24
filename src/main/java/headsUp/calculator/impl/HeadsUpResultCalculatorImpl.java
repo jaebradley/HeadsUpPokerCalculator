@@ -3,16 +3,12 @@ package main.java.headsUp.calculator.impl;
 import main.java.common.model.Hand;
 import main.java.common.model.HandCategory;
 import main.java.common.model.HeadsUpResult;
-import main.java.common.model.KickersComparisonResult;
 import main.java.hand.category.identifier.interfaces.HandCategoryIdentifier;
 import main.java.headsUp.calculator.exceptions.UnableToCalculateHeadsUpResultException;
 import main.java.headsUp.calculator.exceptions.UnableToCompareKickersException;
 import main.java.headsUp.calculator.interfaces.DifferentHandCategoriesHeadsUpResultCalculator;
 import main.java.headsUp.calculator.interfaces.HeadsUpResultCalculator;
 import main.java.headsUp.calculator.interfaces.IdenticalHandCategoriesHeadsUpResultCalculator;
-import main.java.kickers.calculator.exceptions.*;
-import main.java.kickers.calculator.interfaces.*;
-import main.java.kickers.comparator.interfaces.*;
 
 public class HeadsUpResultCalculatorImpl implements HeadsUpResultCalculator{
     private final HandCategoryIdentifier handCategoryIdentifier;

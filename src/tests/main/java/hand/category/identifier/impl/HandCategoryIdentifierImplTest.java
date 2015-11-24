@@ -1,55 +1,13 @@
 package main.java.hand.category.identifier.impl;
 
 import main.java.common.model.*;
-import main.java.common.utils.interfaces.CardCategoryCountMapper;
-import main.java.common.utils.interfaces.CardCategoryPairCounter;
-import main.java.common.utils.interfaces.DistinctSuitsReturner;
-import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.hand.category.identifier.interfaces.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.TreeSet;
 
 public class HandCategoryIdentifierImplTest {
-
-    private final SortedCardCategoryReturner sortedCardCategoryReturner = new SortedCardCategoryReturner() {
-        @Override
-        public TreeSet<CardCategory> returnCardCategoriesInAscendingOrder(final Hand hand) {
-            final TreeSet<CardCategory> cardCategories = new TreeSet<>();
-            cardCategories.add(CardCategory.JACK);
-            cardCategories.add(CardCategory.TEN);
-            cardCategories.add(CardCategory.QUEEN);
-            cardCategories.add(CardCategory.ACE);
-            cardCategories.add(CardCategory.KING);
-            return cardCategories;
-        }
-    };
-
-    private final DistinctSuitsReturner distinctSuitsReturner = new DistinctSuitsReturner() {
-        @Override
-        public HashSet<Suit> returnDistinctSuits(final Hand hand) {
-            final HashSet<Suit> suits = new HashSet<>();
-            suits.add(Suit.CLUBS);
-            return suits;
-        }
-    };
-
-    private final CardCategoryCountMapper cardCategoryCountMapper = new CardCategoryCountMapper() {
-        @Override
-        public HashMap<CardCategory, Integer> returnCardCategoryCountMap(final Hand hand) {
-            return null;
-        }
-    };
-
-    private final CardCategoryPairCounter cardCategoryPairCounter = new CardCategoryPairCounter() {
-        @Override
-        public int countCardCategoryPairs(final Hand hand) {
-            return 0;
-        }
-    };
 
     private final FlushExistenceValidator flushNonExistenceValidator = new FlushExistenceValidator() {
         @Override

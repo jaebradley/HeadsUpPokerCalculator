@@ -1,11 +1,11 @@
 package main.java.kickers.calculator.impl;
 
 
+import main.java.common.comparators.CardCategoryComparator;
 import main.java.common.model.Card;
 import main.java.common.model.CardCategory;
 import main.java.common.model.Hand;
 import main.java.common.model.Suit;
-import main.java.common.comparators.CardCategoryComparator;
 import main.java.common.model.kickers.FlushKickers;
 import main.java.common.utils.interfaces.SortedCardCategoryReturner;
 import main.java.kickers.calculator.exceptions.HandDoesNotContainFiveDistinctCardCategoriesException;
